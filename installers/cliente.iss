@@ -14,7 +14,7 @@ UninstallDisplayIcon={app}\bgdesk.exe
 DefaultGroupName=BGDesk
 DisableProgramGroupPage=yes
 OutputDir=E:\Instaladores\BGDesk
-OutputBaseFilename=bgdesk-cliente-win64
+OutputBaseFilename=setup-bgdesk-cliente
 PrivilegesRequired=admin
 Compression=lzma                         
 SolidCompression=yes
@@ -22,22 +22,12 @@ WizardStyle=modern
 AllowNoIcons=yes
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
-DisableDirPage=true
-DisableStartupPrompt=true
-
-[Code]
-procedure TaskKill(FileName: String);
-var
-  ResultCode: Integer;
-begin
-    Exec('taskkill.exe', '/f /im ' + '"' + FileName + '"', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
-end;
 
 [Languages]                                                                                            
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Files]
-Source: "E:\Projetos\bgdesk\build\windows-cliente\*"; DestDir: "{app}"; BeforeInstall: TaskKill('bgdesk.exe'); Flags: ignoreversion recursesubdirs createallsubdirs 
+Source: "E:\Projetos\bgdesk\build\windows-cliente\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "E:\Projetos\bgdesk\certs\ca.crt"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
              
 [INI]
@@ -45,7 +35,7 @@ Filename: "{app}\boagestao.url"; Section: "InternetShortcut"; Key: "URL"; String
 
 [Icons]
 Name: "{group}\BGDesk"; Filename: "{app}\bgdesk.exe"; WorkingDir: "{app}"; Check: not WizardNoIcons
-Name: "{commondesktop}\BGDesk"; Filename: "{app}\bgdesk.exe"; WorkingDir: "{app}"; Check: not WizardNoIcons
+Name: "{userdesktop}\BGDesk"; Filename: "{app}\bgdesk.exe"; WorkingDir: "{app}"; Check: not WizardNoIcons
 
 [Run]
 Filename: "cmd"; Parameters: "/C certutil -f -addstore root ""{app}\ca.crt"" "; StatusMsg: "Configurando BGDesk"; WorkingDir: {app}; Flags: waituntilterminated runhidden
@@ -58,8 +48,7 @@ Filename: "{app}\bgdesk.exe"; Description: "{cm:LaunchProgram,BGDesk}"; Flags: r
 
 [UninstallRun]
 Filename: "cmd"; Parameters: "/C sc stop BGDesk"; Flags: waituntilterminated runhidden
-Filename: "cmd"; Parameters: "/C sc delete BGDesk"; Flags: waituntilterminated runhidden 
-Filename: "cmd"; Parameters: "/C taskkill /f /im bgdesk.exe"; Flags: waituntilterminated runhidden 
+Filename: "cmd"; Parameters: "/C sc delete BGDesk"; Flags: waituntilterminated runhidden
 
 [UninstallDelete]
 Type: files; Name: "{app}\boagestao.url"

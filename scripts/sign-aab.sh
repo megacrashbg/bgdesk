@@ -1,0 +1,1 @@
+/Users/belizario/Library/Android/sdk/build-tools/34.0.0/apksigner sign --ks /Users/belizario/Documents/Dev/App/bg.jks --min-sdk-version 22 --v1-signing-enabled true --v2-signing-enabled true bgdesk-cliente-universal.aab

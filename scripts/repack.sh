@@ -17,8 +17,6 @@ cd tmp
 sed -i -e 's/Package: rustdesk/Package: bgdesk/g' DEBIAN/control
 sed -i -e 's/rustdesk <info@rustdesk.com>/bgdesk <thinksoftbr@gmail.com>/g' DEBIAN/control
 sed -i -e 's/https:\/\/rustdesk.com/https:\/\/boagestao.com.br\/bgdesk/g' DEBIAN/control
-sed -i -e 's/RustDeskURL Scheme Handler/BGDeskURL Scheme Handler/g' usr/share/applications/bgdesk-link.desktop
-sed -i -e 's/RustDeskURL Scheme Handler/BGDeskURL Scheme Handler/g' usr/share/applications/rustdesk-link.desktop
 
 # DEBIAN/md5sums
 sed -i -e 's/\/rustdesk/\/bgdesk/g' DEBIAN/md5sums

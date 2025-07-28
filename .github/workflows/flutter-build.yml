@@ -50,8 +50,7 @@ jobs:
   generate-bridge:
     uses: ./.github/workflows/bridge.yml
 
-  build-RustDeskTempTopMostWindow:
-    if: false
+  build-RustDeskTempTopMostWindow:    
     uses: ./.github/workflows/third-party-RustDeskTempTopMostWindow.yml
     with:
       upload-artifact: ${{ inputs.upload-artifact }}
@@ -62,8 +61,7 @@ jobs:
     strategy:
       fail-fast: false
 
-  build-for-windows-flutter:
-    if: false
+  build-for-windows-flutter:    
     name: ${{ matrix.job.target }}
     needs: [build-RustDeskTempTopMostWindow, generate-bridge]
     runs-on: ${{ matrix.job.os }}
@@ -284,10 +282,10 @@ jobs:
 
   # The fallback for the flutter version, we use Sciter for 32bit Windows.
   build-for-windows-sciter:
-    name: ${{ matrix.job.target }} (${{ matrix.job.os }})
-    runs-on: ${{ matrix.job.os }}
     # Temporarily disable this action due to additional test is needed.
     if: false
+    name: ${{ matrix.job.target }} (${{ matrix.job.os }})
+    runs-on: ${{ matrix.job.os }}
     strategy:
       fail-fast: false
       matrix:
@@ -923,6 +921,7 @@ jobs:
           files: rustdesk-${{ env.VERSION }}-unsigned.tar.gz
 
   build-rustdesk-android:
+    if: false
     needs: [generate-bridge]
     name: build rustdesk android apk ${{ matrix.job.target }}
     runs-on: ${{ matrix.job.os }}
@@ -1213,9 +1212,9 @@ jobs:
             signed-apk/rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.apk
 
   build-rustdesk-android-universal:
+    if: false
     needs: [build-rustdesk-android]
     name: build rustdesk android universal apk
-    if: ${{ inputs.upload-artifact }}    
     runs-on: ubuntu-22.04
     env:
       reltype: release
@@ -1347,7 +1346,7 @@ jobs:
           popd
           mkdir -p signed-apk
           mv ./flutter/build/app/outputs/flutter-apk/app-${{ env.reltype }}.apk signed-apk/rustdesk-${{ env.VERSION }}-universal${{ env.suffix }}.apk
-          mv ./flutter/build/app/outputs/flutter-apk/app-${{ env.reltype }}.aab signed-apk/rustdesk-${{ env.VERSION }}-universal${{ env.suffix }}.aab
+          mv ./flutter/build/app/outputs/bundle/release/app-${{ env.reltype }}.aab signed-apk/rustdesk-${{ env.VERSION }}-universal${{ env.suffix }}.aab
 
       # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1889636075
       - name: Setup sign tool version variable

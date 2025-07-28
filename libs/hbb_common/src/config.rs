@@ -1052,7 +1052,7 @@ impl Config {
     pub fn get_salt() -> String {
         let mut salt = CONFIG.read().unwrap().salt.clone();
         if salt.is_empty() {
-            salt = Config::get_auto_password(6);
+            salt = Config::get_auto_password(4);
             Config::set_salt(&salt);
         }
         salt
@@ -1845,8 +1845,10 @@ impl UserDefaultConfig {
             keys::OPTION_CUSTOM_FPS => self.get_double_string(key, 30.0, 5.0, 120.0),
             keys::OPTION_ENABLE_FILE_COPY_PASTE => self.get_string(key, "Y", vec!["", "N"]),
             keys::OPTION_SHOW_MONITORS_TOOLBAR => self.get_string(key, "Y", vec!["", "N"]),
+            keys::OPTION_ALLOW_REMOTE_CONFIG_MODIFICATION => self.get_string(key, "Y", vec!["", "N"]),
             keys::OPTION_ENABLE_REMOTE_RESTART => self.get_string(key, "Y", vec!["", "N"]),
-            keys::OPTION_ENABLE_LAN_DISCOVERY => self.get_string(key, "Y", vec!["", "N"]), 
+            keys::OPTION_ENABLE_LAN_DISCOVERY => self.get_string(key, "Y", vec!["", "N"]),
+            keys::OPTION_HIDE_TRAY => self.get_string(key, "Y", vec!["", "N"]),
             keys::OPTION_ALLOW_LOGON_SCREEN_PASSWORD => self.get_string(key, "Y", vec!["", "N"]),
             keys::OPTION_HIDE_NETWORK_SETTINGS => self.get_string(key, "Y", vec!["", "N"]),
             _ => self
@@ -2230,11 +2232,12 @@ fn is_option_can_save(
 
 #[inline]
 pub fn is_incoming_only() -> bool {
-    HARD_SETTINGS
-        .read()
-        .unwrap()
-        .get("conn-type")
-        .map_or(false, |x| x == ("incoming"))
+    true
+    // HARD_SETTINGS
+    //     .read()
+    //     .unwrap()
+    //     .get("conn-type")
+    //     .map_or(false, |x| x == ("incoming"))
 }
 
 #[inline]
@@ -2262,6 +2265,7 @@ pub fn is_disable_tcp_listen() -> bool {
 
 #[inline]
 pub fn is_disable_settings() -> bool {
+    // true
     is_some_hard_opton("disable-settings")
 }
 
@@ -2272,8 +2276,8 @@ pub fn is_disable_ab() -> bool {
 
 #[inline]
 pub fn is_disable_account() -> bool {
-    // is_some_hard_opton("disable-account")
     true
+    // is_some_hard_opton("disable-account")
 }
 
 #[inline]
@@ -2538,6 +2542,7 @@ pub mod keys {
         OPTION_ENABLE_DIRECTX_CAPTURE,
         OPTION_ENABLE_ANDROID_SOFTWARE_ENCODING_HALF_SCALE,
         OPTION_ENABLE_TRUSTED_DEVICES,
+        OPTION_DISABLE_AUDIO
     ];
 
     // BUILDIN_SETTINGS
