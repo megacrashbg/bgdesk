@@ -784,7 +784,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                 permissions(context),
                 password(context),
                 _Card(title: '2FA', children: [tfa()]),
-                _Card(title: 'ID', children: [changeId()]),
+                // _Card(title: 'ID', children: [changeId()]),
                 more(context),
               ]),
             ),
@@ -1066,7 +1066,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                   }
                 }
               : null;
-          List<Widget> lengthRadios = ['6', '8', '10']
+          List<Widget> lengthRadios = ['4', '6', '8', '10']
               .map((value) => GestureDetector(
                     child: Row(
                       children: [
@@ -1478,24 +1478,24 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (!hideServer)
-                ListTile(
-                  leading: Icon(Icons.dns_outlined, color: _accentColor),
-                  title: Text(
-                    translate('ID/Relay Server'),
-                    style: TextStyle(fontSize: _kContentFontSize),
-                  ),
-                  enabled: !locked,
-                  onTap: () => showServerSettings(gFFI.dialogManager),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16),
-                  minLeadingWidth: 0,
-                  horizontalTitleGap: 10,
-                ),
-              if (!hideServer && !hideProxy)
-                Divider(height: 1, indent: 16, endIndent: 16),
+              // if (!hideServer)
+              //   ListTile(
+              //     leading: Icon(Icons.dns_outlined, color: _accentColor),
+              //     title: Text(
+              //       translate('ID/Relay Server'),
+              //       style: TextStyle(fontSize: _kContentFontSize),
+              //     ),
+              //     enabled: !locked,
+              //     onTap: () => showServerSettings(gFFI.dialogManager),
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(10),
+              //     ),
+              //     contentPadding: EdgeInsets.symmetric(horizontal: 16),
+              //     minLeadingWidth: 0,
+              //     horizontalTitleGap: 10,
+              //   ),
+              // if (!hideServer && !hideProxy)
+              //   Divider(height: 1, indent: 16, endIndent: 16),
               if (!hideProxy)
                 ListTile(
                   leading:
@@ -2091,7 +2091,7 @@ class _AboutState extends State<_About> {
                         .marginSymmetric(vertical: 4.0)),
               InkWell(
                   onTap: () {
-                    launchUrlString('https://rustdesk.com/privacy.html');
+                    launchUrlString('https://bgdesk.com/privacy.html');
                   },
                   child: Text(
                     translate('Privacy Statement'),
@@ -2099,7 +2099,7 @@ class _AboutState extends State<_About> {
                   ).marginSymmetric(vertical: 4.0)),
               InkWell(
                   onTap: () {
-                    launchUrlString('https://rustdesk.com');
+                    launchUrlString('https://bgdesk.com');
                   },
                   child: Text(
                     translate('Website'),

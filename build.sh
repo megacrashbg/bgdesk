@@ -35,6 +35,7 @@ buildMac()
     cd build
     zip -vr bgdesk-$BUILD_PATH-darwin.zip BGDesk.app
     cd ..
+    pushd flutter && sed -i -e 's/extended_text: 13.0.0/extended_text: 14.0.0/g' pubspec.yaml && popd
 }
 
 buildLinux()

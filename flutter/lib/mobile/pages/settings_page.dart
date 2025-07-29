@@ -36,7 +36,7 @@ class SettingsPage extends StatefulWidget implements PageShape {
   State<SettingsPage> createState() => _SettingsState();
 }
 
-const url = 'https://rustdesk.com/';
+const url = 'https://bgdesk.com/';
 
 enum KeepScreenOn {
   never,
@@ -561,21 +561,21 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
           gFFI.invokeMethod(AndroidChannel.kSetStartOnBootOpt, toValue);
         }));
 
-    if (!bind.isCustomClient()) {
-      enhancementsTiles.add(
-        SettingsTile.switchTile(
-          initialValue: _checkUpdateOnStartup,
-          title:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(translate('Check for software update on startup')),
-          ]),
-          onToggle: (bool toValue) async {
-            await mainSetLocalBoolOption(kOptionEnableCheckUpdate, toValue);
-            setState(() => _checkUpdateOnStartup = toValue);
-          },
-        ),
-      );
-    }
+    // if (!bind.isCustomClient()) {
+    //   enhancementsTiles.add(
+    //     SettingsTile.switchTile(
+    //       initialValue: _checkUpdateOnStartup,
+    //       title:
+    //           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+    //         Text(translate('Check for software update on startup')),
+    //       ]),
+    //       onToggle: (bool toValue) async {
+    //         await mainSetLocalBoolOption(kOptionEnableCheckUpdate, toValue);
+    //         setState(() => _checkUpdateOnStartup = toValue);
+    //       },
+    //     ),
+    //   );
+    // }
 
     onFloatingWindowChanged(bool toValue) async {
       if (toValue) {
@@ -633,33 +633,33 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     final settings = SettingsList(
       sections: [
         customClientSection,
-        if (!bind.isDisableAccount())
-          SettingsSection(
-            title: Text(translate('Account')),
-            tiles: [
-              SettingsTile(
-                title: Obx(() => Text(gFFI.userModel.userName.value.isEmpty
-                    ? translate('Login')
-                    : '${translate('Logout')} (${gFFI.userModel.userName.value})')),
-                leading: Icon(Icons.person),
-                onPressed: (context) {
-                  if (gFFI.userModel.userName.value.isEmpty) {
-                    loginDialog();
-                  } else {
-                    logOutConfirmDialog();
-                  }
-                },
-              ),
-            ],
-          ),
+        // if (!bind.isDisableAccount())
+        //   SettingsSection(
+        //     title: Text(translate('Account')),
+        //     tiles: [
+        //       SettingsTile(
+        //         title: Obx(() => Text(gFFI.userModel.userName.value.isEmpty
+        //             ? translate('Login')
+        //             : '${translate('Logout')} (${gFFI.userModel.userName.value})')),
+        //         leading: Icon(Icons.person),
+        //         onPressed: (context) {
+        //           if (gFFI.userModel.userName.value.isEmpty) {
+        //             loginDialog();
+        //           } else {
+        //             logOutConfirmDialog();
+        //           }
+        //         },
+        //       ),
+        //     ],
+        //   ),
         SettingsSection(title: Text(translate("Settings")), tiles: [
-          if (!disabledSettings && !_hideNetwork && !_hideServer)
-            SettingsTile(
-                title: Text(translate('ID/Relay Server')),
-                leading: Icon(Icons.cloud),
-                onPressed: (context) {
-                  showServerSettings(gFFI.dialogManager);
-                }),
+          // if (!disabledSettings && !_hideNetwork && !_hideServer)
+          //   SettingsTile(
+          //       title: Text(translate('ID/Relay Server')),
+          //       leading: Icon(Icons.cloud),
+          //       onPressed: (context) {
+          //         showServerSettings(gFFI.dialogManager);
+          //       }),
           if (!isIOS && !_hideNetwork && !_hideProxy)
             SettingsTile(
                 title: Text(translate('Socks5/Http(s) Proxy')),
@@ -787,7 +787,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 title: Text(translate("Version: ") + version),
                 value: Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('rustdesk.com',
+                  child: Text('bgdesk.com',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
                       )),
@@ -812,7 +812,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
             SettingsTile(
               title: Text(translate("Privacy Statement")),
               onPressed: (context) =>
-                  launchUrlString('https://rustdesk.com/privacy.html'),
+                  launchUrlString('https://bgdesk.com/privacy.html'),
               leading: Icon(Icons.privacy_tip),
             )
           ],
@@ -925,12 +925,12 @@ void showAbout(OverlayDialogManager dialogManager) {
         Text('Version: $version'),
         InkWell(
             onTap: () async {
-              const url = 'https://rustdesk.com/';
+              const url = 'https://bgdesk.com/';
               await launchUrl(Uri.parse(url));
             },
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 8),
-              child: Text('rustdesk.com',
+              child: Text('bgdesk.com',
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                   )),
