@@ -1,14 +1,13 @@
 name: Build BGDesk
 
 on:
-  workflow_call:
-    inputs:
-      upload-artifact:
-        type: boolean
-        default: true
-      upload-tag:
-        type: string
-        default: "nightly"
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+-[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+-[0-9]+'
 
 # NOTE: F-Droid builder script 'flutter/build_fdroid.sh' reads environment
 # variables from this workflow!

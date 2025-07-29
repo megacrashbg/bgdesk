@@ -47,6 +47,8 @@ pub fn temporary_password_length() -> usize {
         8
     } else if length == "10" {
         10
+    } else if length == "6" {
+        6 
     } else {
         4 // default
     }
