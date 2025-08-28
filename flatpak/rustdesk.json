@@ -1,12 +1,12 @@
 {
-  "id": "br.com.boagestao.BGDesk",
+  "id": "com.rustdesk.RustDesk",
   "runtime": "org.freedesktop.Platform",
   "runtime-version": "24.08",
   "sdk": "org.freedesktop.Sdk",
-  "command": "bgdesk",
+  "command": "rustdesk",
   "cleanup": ["/include", "/lib/pkgconfig", "/share/gtk-doc"],
-  "rename-desktop-file": "bgdesk.desktop",
-  "rename-icon": "bgdesk",
+  "rename-desktop-file": "rustdesk.desktop",
+  "rename-icon": "rustdesk",
   "modules": [
     "shared-modules/libappindicator/libappindicator-gtk3-12.10.json",
     {
@@ -34,21 +34,21 @@
       ]
     },
     {
-      "name": "bgdesk",
+      "name": "rustdesk",
       "buildsystem": "simple",
       "build-commands": [
-        "bsdtar -Oxf bgdesk.deb data.tar.xz | bsdtar -xf -",
+        "bsdtar -Oxf rustdesk.deb data.tar.xz | bsdtar -xf -",
         "cp -r usr/* /app/",
-        "mkdir -p /app/bin && ln -s /app/share/bgdesk/bgdesk /app/bin/bgdesk"
+        "mkdir -p /app/bin && ln -s /app/share/rustdesk/rustdesk /app/bin/rustdesk"
       ],
       "sources": [
         {
           "type": "file",
-          "path": "bgdesk.deb"
+          "path": "rustdesk.deb"
         },
         {
           "type": "file",
-          "path": "br.com.boagestao.BGDesk.metainfo.xml"
+          "path": "com.rustdesk.RustDesk.metainfo.xml"
         }
       ]
     }

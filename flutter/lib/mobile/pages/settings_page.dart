@@ -5,7 +5,6 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_hbb/common/widgets/setting_widgets.dart';
 import 'package:flutter_hbb/desktop/pages/desktop_setting_page.dart';
-import 'package:flutter_hbb/models/state_model.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:settings_ui/settings_ui.dart';
@@ -36,7 +35,7 @@ class SettingsPage extends StatefulWidget implements PageShape {
   State<SettingsPage> createState() => _SettingsState();
 }
 
-const url = 'https://bgdesk.com/';
+const url = 'https://rustdesk.com/';
 
 enum KeepScreenOn {
   never,
@@ -80,6 +79,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
   var _enableDirectIPAccess = false;
   var _enableRecordSession = false;
   var _enableHardwareCodec = false;
+  var _allowWebSocket = false;
   var _autoRecordIncomingSession = false;
   var _autoRecordOutgoingSession = false;
   var _allowAutoDisconnect = false;
@@ -91,7 +91,10 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
   var _hideServer = false;
   var _hideProxy = false;
   var _hideNetwork = false;
+  var _hideWebSocket = false;
   var _enableTrustedDevices = false;
+  var _enableUdpPunch = false;
+  var _enableIpv6Punch = false;
 
   _SettingsState() {
     _enableAbr = option2bool(
@@ -105,6 +108,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
         bind.mainGetOptionSync(key: kOptionEnableRecordSession));
     _enableHardwareCodec = option2bool(kOptionEnableHwcodec,
         bind.mainGetOptionSync(key: kOptionEnableHwcodec));
+    _allowWebSocket = mainGetBoolOptionSync(kOptionAllowWebSocket);
     _autoRecordIncomingSession = option2bool(kOptionAllowAutoRecordIncoming,
         bind.mainGetOptionSync(key: kOptionAllowAutoRecordIncoming));
     _autoRecordOutgoingSession = option2bool(kOptionAllowAutoRecordOutgoing,
@@ -120,7 +124,12 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     _hideProxy = bind.mainGetBuildinOption(key: kOptionHideProxySetting) == 'Y';
     _hideNetwork =
         bind.mainGetBuildinOption(key: kOptionHideNetworkSetting) == 'Y';
+    _hideWebSocket =
+        bind.mainGetBuildinOption(key: kOptionHideWebSocketSetting) == 'Y' ||
+            isWeb;
     _enableTrustedDevices = mainGetBoolOptionSync(kOptionEnableTrustedDevices);
+    _enableUdpPunch = mainGetLocalBoolOptionSync(kOptionEnableUdpPunch);
+    _enableIpv6Punch = mainGetLocalBoolOptionSync(kOptionEnableIpv6Punch);
   }
 
   @override
@@ -369,7 +378,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
         },
       ),
       SettingsTile.switchTile(
-        title: Text('${translate('Adaptive bitrate')} (beta)'),
+        title: Text(translate('Adaptive bitrate')),
         initialValue: _enableAbr,
         onToggle: isOptionFixed(kOptionEnableAbr)
             ? null
@@ -498,7 +507,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
               title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(translate('Keep BGDesk background service')),
+                    Text(translate('Keep RustDesk background service')),
                     Text('* ${translate('Ignore Battery Optimizations')}',
                         style: Theme.of(context).textTheme.bodySmall),
                   ]),
@@ -531,7 +540,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     enhancementsTiles.add(SettingsTile.switchTile(
         initialValue: _enableStartOnBoot,
         title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text("${translate('Start on boot')} (beta)"),
+          Text(translate('Start on boot')),
           Text(
               '* ${translate('Start the screen sharing service on boot, requires special permissions')}',
               style: Theme.of(context).textTheme.bodySmall),
@@ -561,21 +570,21 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
           gFFI.invokeMethod(AndroidChannel.kSetStartOnBootOpt, toValue);
         }));
 
-    // if (!bind.isCustomClient()) {
-    //   enhancementsTiles.add(
-    //     SettingsTile.switchTile(
-    //       initialValue: _checkUpdateOnStartup,
-    //       title:
-    //           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-    //         Text(translate('Check for software update on startup')),
-    //       ]),
-    //       onToggle: (bool toValue) async {
-    //         await mainSetLocalBoolOption(kOptionEnableCheckUpdate, toValue);
-    //         setState(() => _checkUpdateOnStartup = toValue);
-    //       },
-    //     ),
-    //   );
-    // }
+    if (!bind.isCustomClient()) {
+      enhancementsTiles.add(
+        SettingsTile.switchTile(
+          initialValue: _checkUpdateOnStartup,
+          title:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(translate('Check for software update on startup')),
+          ]),
+          onToggle: (bool toValue) async {
+            await mainSetLocalBoolOption(kOptionEnableCheckUpdate, toValue);
+            setState(() => _checkUpdateOnStartup = toValue);
+          },
+        ),
+      );
+    }
 
     onFloatingWindowChanged(bool toValue) async {
       if (toValue) {
@@ -633,33 +642,33 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     final settings = SettingsList(
       sections: [
         customClientSection,
-        // if (!bind.isDisableAccount())
-        //   SettingsSection(
-        //     title: Text(translate('Account')),
-        //     tiles: [
-        //       SettingsTile(
-        //         title: Obx(() => Text(gFFI.userModel.userName.value.isEmpty
-        //             ? translate('Login')
-        //             : '${translate('Logout')} (${gFFI.userModel.userName.value})')),
-        //         leading: Icon(Icons.person),
-        //         onPressed: (context) {
-        //           if (gFFI.userModel.userName.value.isEmpty) {
-        //             loginDialog();
-        //           } else {
-        //             logOutConfirmDialog();
-        //           }
-        //         },
-        //       ),
-        //     ],
-        //   ),
+        if (!bind.isDisableAccount())
+          SettingsSection(
+            title: Text(translate('Account')),
+            tiles: [
+              SettingsTile(
+                title: Obx(() => Text(gFFI.userModel.userName.value.isEmpty
+                    ? translate('Login')
+                    : '${translate('Logout')} (${gFFI.userModel.userName.value})')),
+                leading: Icon(Icons.person),
+                onPressed: (context) {
+                  if (gFFI.userModel.userName.value.isEmpty) {
+                    loginDialog();
+                  } else {
+                    logOutConfirmDialog();
+                  }
+                },
+              ),
+            ],
+          ),
         SettingsSection(title: Text(translate("Settings")), tiles: [
-          // if (!disabledSettings && !_hideNetwork && !_hideServer)
-          //   SettingsTile(
-          //       title: Text(translate('ID/Relay Server')),
-          //       leading: Icon(Icons.cloud),
-          //       onPressed: (context) {
-          //         showServerSettings(gFFI.dialogManager);
-          //       }),
+          if (!disabledSettings && !_hideNetwork && !_hideServer)
+            SettingsTile(
+                title: Text(translate('ID/Relay Server')),
+                leading: Icon(Icons.cloud),
+                onPressed: (context) {
+                  showServerSettings(gFFI.dialogManager);
+                }),
           if (!isIOS && !_hideNetwork && !_hideProxy)
             SettingsTile(
                 title: Text(translate('Socks5/Http(s) Proxy')),
@@ -667,6 +676,47 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 onPressed: (context) {
                   changeSocks5Proxy();
                 }),
+          if (!disabledSettings && !_hideNetwork && !_hideWebSocket)
+            SettingsTile.switchTile(
+              title: Text(translate('Use WebSocket')),
+              initialValue: _allowWebSocket,
+              onToggle: isOptionFixed(kOptionAllowWebSocket)
+                  ? null
+                  : (v) async {
+                      await mainSetBoolOption(kOptionAllowWebSocket, v);
+                      final newValue =
+                          await mainGetBoolOption(kOptionAllowWebSocket);
+                      setState(() {
+                        _allowWebSocket = newValue;
+                      });
+                    },
+            ),
+          if (!incomingOnly)
+            SettingsTile.switchTile(
+              title: Text(translate('Enable UDP hole punching')),
+              initialValue: _enableUdpPunch,
+              onToggle: (v) async {
+                await mainSetLocalBoolOption(kOptionEnableUdpPunch, v);
+                final newValue =
+                    mainGetLocalBoolOptionSync(kOptionEnableUdpPunch);
+                setState(() {
+                  _enableUdpPunch = newValue;
+                });
+              },
+            ),
+          if (!incomingOnly)
+            SettingsTile.switchTile(
+              title: Text(translate('Enable IPv6 P2P connection')),
+              initialValue: _enableIpv6Punch,
+              onToggle: (v) async {
+                await mainSetLocalBoolOption(kOptionEnableIpv6Punch, v);
+                final newValue =
+                    mainGetLocalBoolOptionSync(kOptionEnableIpv6Punch);
+                setState(() {
+                  _enableIpv6Punch = newValue;
+                });
+              },
+            ),
           SettingsTile(
               title: Text(translate('Language')),
               leading: Icon(Icons.translate),
@@ -765,7 +815,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
             !outgoingOnly &&
             !hideSecuritySettings)
           SettingsSection(
-            title: Text(translate("Share Screen")),
+            title: Text(translate("Share screen")),
             tiles: shareScreenTiles,
           ),
         if (!bind.isIncomingOnly()) defaultDisplaySection(),
@@ -787,7 +837,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 title: Text(translate("Version: ") + version),
                 value: Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('bgdesk.com',
+                  child: Text('rustdesk.com',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
                       )),
@@ -812,7 +862,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
             SettingsTile(
               title: Text(translate("Privacy Statement")),
               onPressed: (context) =>
-                  launchUrlString('https://bgdesk.com/privacy.html'),
+                  launchUrlString('https://rustdesk.com/privacy.html'),
               leading: Icon(Icons.privacy_tip),
             )
           ],
@@ -920,17 +970,17 @@ void showThemeSettings(OverlayDialogManager dialogManager) async {
 void showAbout(OverlayDialogManager dialogManager) {
   dialogManager.show((setState, close, context) {
     return CustomAlertDialog(
-      title: Text(translate('About BGDesk')),
+      title: Text(translate('About RustDesk')),
       content: Wrap(direction: Axis.vertical, spacing: 12, children: [
         Text('Version: $version'),
         InkWell(
             onTap: () async {
-              const url = 'https://bgdesk.com/';
+              const url = 'https://rustdesk.com/';
               await launchUrl(Uri.parse(url));
             },
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 8),
-              child: Text('bgdesk.com',
+              child: Text('rustdesk.com',
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                   )),

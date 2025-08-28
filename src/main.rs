@@ -8,6 +8,7 @@ use librustdesk::*;
 #[cfg(any(target_os = "android", target_os = "ios", feature = "flutter"))]
 fn main() {
     if !common::global_init() {
+        eprintln!("Global initialization failed.");
         return;
     }
     common::test_rendezvous_server();
@@ -50,7 +51,7 @@ fn main() {
     );
     let matches = App::new("bgdesk")
         .version(crate::VERSION)
-        .author("Thinksoft Ltda<thinksoftbr@gmail.com>")
+        .author("Thinksoft LTDA<contato@boagestao.com.br>")
         .about("BGDesk command line tool")
         .args_from_usage(&args)
         .get_matches();

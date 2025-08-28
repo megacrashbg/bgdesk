@@ -1,1 +1,0 @@
-rsync --info=progress2 --links --del -rt  ./bgdesk/ ./bgdesk-build/ --exclude .git/ --exclude .DS_Store --exclude build --exclude target

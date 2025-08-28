@@ -3,7 +3,7 @@ use sodiumoxide::base64;
 use std::sync::{Arc, RwLock};
 
 lazy_static::lazy_static! {
-    pub static ref TEMPORARY_PASSWORD:Arc<RwLock<String>> = Arc::new(RwLock::new(Config::get_auto_password(temporary_password_length())));
+    pub static ref TEMPORARY_PASSWORD:Arc<RwLock<String>> = Arc::new(RwLock::new(get_auto_password()));
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -20,9 +20,18 @@ pub enum ApproveMode {
     Click,
 }
 
+fn get_auto_password() -> String {
+    let len = temporary_password_length();
+    if Config::get_bool_option(crate::config::keys::OPTION_ALLOW_NUMERNIC_ONE_TIME_PASSWORD) {
+        Config::get_auto_numeric_password(len)
+    } else {
+        Config::get_auto_password(len)
+    }
+}
+
 // Should only be called in server
 pub fn update_temporary_password() {
-    *TEMPORARY_PASSWORD.write().unwrap() = Config::get_auto_password(temporary_password_length());
+    *TEMPORARY_PASSWORD.write().unwrap() = get_auto_password();
 }
 
 // Should only be called in server
@@ -43,14 +52,13 @@ fn verification_method() -> VerificationMethod {
 
 pub fn temporary_password_length() -> usize {
     let length = Config::get_option("temporary-password-length");
+	if length == "4" || length == "" { return 4 }
     if length == "8" {
         8
     } else if length == "10" {
         10
-    } else if length == "6" {
-        6 
     } else {
-        4 // default
+        6 // default
     }
 }
 

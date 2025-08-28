@@ -42,7 +42,7 @@ pub fn start(args: &mut [String]) {
     #[cfg(all(target_os = "linux", feature = "inline"))]
     {
         let app_dir = std::env::var("APPDIR").unwrap_or("".to_string());
-        let mut so_path = "/usr/share/bgdesk/libsciter-gtk.so".to_owned();
+        let mut so_path = "/usr/share/rustdesk/libsciter-gtk.so".to_owned();
         for (prefix, dir) in [
             ("", "/usr"),
             ("", "/app"),
@@ -51,7 +51,7 @@ pub fn start(args: &mut [String]) {
         ]
         .iter()
         {
-            let path = format!("{prefix}{dir}/share/bgdesk/libsciter-gtk.so");
+            let path = format!("{prefix}{dir}/share/rustdesk/libsciter-gtk.so");
             if std::path::Path::new(&path).exists() {
                 so_path = path;
                 break;
@@ -118,6 +118,11 @@ pub fn start(args: &mut [String]) {
             Box::new(cm::SciterConnectionManager::new())
         });
         page = "cm.html";
+        *cm::HIDE_CM.lock().unwrap() = crate::ipc::get_config("hide_cm")
+            .ok()
+            .flatten()
+            .unwrap_or_default()
+            == "true";
     } else if (args[0] == "--connect"
         || args[0] == "--file-transfer"
         || args[0] == "--port-forward"
@@ -178,6 +183,13 @@ pub fn start(args: &mut [String]) {
             .unwrap_or("".to_owned()),
         page
     ));
+    let hide_cm = *cm::HIDE_CM.lock().unwrap();
+    if !args.is_empty() && args[0] == "--cm" && hide_cm {
+        // run_app calls expand(show) + run_loop, we use collapse(hide) + run_loop instead to create a hidden window
+        frame.collapse(true);
+        frame.run_loop();
+        return;
+    }
     frame.run_app();
 }
 
@@ -470,12 +482,7 @@ impl UI {
     }
 
     fn get_software_update_url(&self) -> String {
-        
-        // ######  EXPLICIT REMOVE BY BELIZARIO
-        
-        // crate::SOFTWARE_UPDATE_URL.lock().unwrap().clone()
-        // empty string
-        "".to_owned()
+        crate::SOFTWARE_UPDATE_URL.lock().unwrap().clone()
     }
 
     fn get_new_version(&self) -> String {
@@ -638,9 +645,9 @@ impl UI {
     pub fn verify2fa(&self, code: String) -> bool {
         verify2fa(code)
     }
-        
+
     fn verify_login(&self, raw: String, id: String) -> bool {
-       crate::verify_login(&raw, &id)
+        crate::verify_login(&raw, &id)
     }
 
     fn generate_2fa_img_src(&self, data: String) -> String {

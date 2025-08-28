@@ -29,7 +29,7 @@
 			<string>br.com.boagestao.bgdesk</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>bgdesk</string>
+				<string>rustdesk</string>
 			</array>
 		</dict>
 	</array>

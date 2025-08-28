@@ -17,7 +17,7 @@ import 'home_page.dart';
 
 class ServerPage extends StatefulWidget implements PageShape {
   @override
-  final title = translate("Share Screen");
+  final title = translate("Share screen");
 
   @override
   final icon = const Icon(Icons.mobile_screen_share);
@@ -56,6 +56,10 @@ class _DropDownAction extends StatelessWidget {
           final verificationMethod = gFFI.serverModel.verificationMethod;
           final showPasswordOption = approveMode != 'click';
           final isApproveModeFixed = isOptionFixed(kOptionApproveMode);
+          final isNumericOneTimePasswordFixed =
+              isOptionFixed(kOptionAllowNumericOneTimePassword);
+          final isAllowNumericOneTimePassword =
+              gFFI.serverModel.allowNumericOneTimePassword;
           return [
             PopupMenuItem(
               enabled: gFFI.serverModel.connectStatus > 0,
@@ -94,6 +98,14 @@ class _DropDownAction extends StatelessWidget {
                 value: "setTemporaryPasswordLength",
                 child: Text(translate("One-time password length")),
               ),
+            if (showPasswordOption &&
+                verificationMethod != kUsePermanentPassword)
+              PopupMenuItem(
+                value: "allowNumericOneTimePassword",
+                child: listTile(translate("Numeric one-time password"),
+                    isAllowNumericOneTimePassword),
+                enabled: !isNumericOneTimePasswordFixed,
+              ),
             if (showPasswordOption) const PopupMenuDivider(),
             if (showPasswordOption)
               PopupMenuItem(
@@ -124,6 +136,9 @@ class _DropDownAction extends StatelessWidget {
             setPasswordDialog();
           } else if (value == "setTemporaryPasswordLength") {
             setTemporaryPasswordLengthDialog(gFFI.dialogManager);
+          } else if (value == "allowNumericOneTimePassword") {
+            gFFI.serverModel.switchAllowNumericOneTimePassword();
+            gFFI.serverModel.updatePasswordModel();
           } else if (value == kUsePermanentPassword ||
               value == kUseTemporaryPassword ||
               value == kUseBothPasswords) {
@@ -232,13 +247,13 @@ class ServiceNotRunningNotification extends StatelessWidget {
             ElevatedButton.icon(
                 icon: const Icon(Icons.play_arrow),
                 onPressed: () {
-                  // if (gFFI.userModel.userName.value.isEmpty &&
-                  //     bind.mainGetLocalOption(key: "show-scam-warning") !=
-                  //         "N") {
-                  //   showScamWarning(context, serverModel);
-                  // } else {
+                  if (gFFI.userModel.userName.value.isEmpty &&
+                      bind.mainGetLocalOption(key: "show-scam-warning") !=
+                          "N") {
+                    showScamWarning(context, serverModel);
+                  } else {
                     serverModel.toggleService();
-                  // }
+                  }
                 },
                 label: Text(translate("Start service")))
           ],
@@ -577,12 +592,11 @@ class _PermissionCheckerState extends State<PermissionChecker> {
           PermissionRow(
               translate("Screen Capture"),
               serverModel.mediaOk,
-              // !serverModel.mediaOk &&
-              //         gFFI.userModel.userName.value.isEmpty &&
-              //         bind.mainGetLocalOption(key: "show-scam-warning") != "N"
-              //     ? () => showScamWarning(context, serverModel)
-              //     : serverModel.toggleService),
-              serverModel.toggleService),
+              !serverModel.mediaOk &&
+                      gFFI.userModel.userName.value.isEmpty &&
+                      bind.mainGetLocalOption(key: "show-scam-warning") != "N"
+                  ? () => showScamWarning(context, serverModel)
+                  : serverModel.toggleService),
           PermissionRow(translate("Input Control"), serverModel.inputOk,
               serverModel.toggleInput),
           PermissionRow(translate("Transfer file"), serverModel.fileOk,
@@ -635,8 +649,8 @@ class ConnectionManager extends StatelessWidget {
         children: serverModel.clients
             .map((client) => PaddingCard(
                 title: translate(client.isFileTransfer
-                    ? "File Connection"
-                    : "Screen Connection"),
+                    ? "Transfer file"
+                    : "Share screen"),
                 titleIcon: client.isFileTransfer
                     ? Icon(Icons.folder_outlined)
                     : Icon(Icons.mobile_screen_share),

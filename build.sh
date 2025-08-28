@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ROOT_PATH=$(dirname $(realpath $0))
+
 OS=$(uname -s)
 ARCH=$(uname -m)
 
@@ -22,27 +24,56 @@ buildWindows()
     rm -rf build/windows
 
     mkdir -p build/windows
-    mv flutter/build/windows/x64/runner/Release/* build/windows/
-    mv build/windows/rustdesk.exe build/windows/bgdesk.exe
+    mv -f flutter/build/windows/x64/runner/Release/* build/windows/
+    mv -f build/windows/rustdesk.exe build/windows/bgdesk.exe
     ./sign.sh build/windows/bgdesk.exe
 }
 
 buildMac()
 {
-    pushd flutter && sed -i -e 's/extended_text: 14.0.0/extended_text: 13.0.0/g' pubspec.yaml && flutter pub get && popd
-    ./build.py --flutter --hwcodec --unix-file-copy-paste
-    mv flutter/build/macos/Build/Products/Release/BGDesk.app ./build/BGDesk.app
-    cd build
-    zip -vr bgdesk-$BUILD_PATH-darwin.zip BGDesk.app
-    cd ..
-    pushd flutter && sed -i -e 's/extended_text: 13.0.0/extended_text: 14.0.0/g' pubspec.yaml && popd
+   pushd flutter && sed -i -e 's/extended_text: 13.0.0/extended_text: 14.0.0/g' pubspec.yaml && popd
+
+   echo "Building Mac Cliente"
+
+   rm -rf build/BGDesk.app
+   rm -rf flutter/build/macos/Build/Products/Release/BGDesk.app   
+   
+   cd libs/hbb_common/src && sed -i -e 's/.map_or(false, |x| x == ("incoming"))/.map_or(true, |x| x == ("incoming"))/g' config.rs && cd $ROOT_PATH
+   ./build.py --flutter --hwcodec --unix-file-copy-paste   
+   cd libs/hbb_common/src && sed -i -e 's/.map_or(true, |x| x == ("incoming"))/.map_or(false, |x| x == ("incoming"))/g' config.rs && cd $ROOT_PATH
+
+   mv -f flutter/build/macos/Build/Products/Release/BGDesk.app ./build/BGDesk.app
+   cd build 
+   zip -yr bgdesk-cliente-darwin.zip BGDesk.app
+   cd ..
+   mv -f build/bgdesk-cliente-darwin.zip ../dist/
+
+
+   
+   echo "Building Mac Suporte"
+
+   rm -rf build/BGDesk.app
+   rm -rf flutter/build/macos/Build/Products/Release/BGDesk.app
+
+   ./build.py --flutter --hwcodec --unix-file-copy-paste
+   mv -f flutter/build/macos/Build/Products/Release/BGDesk.app ./build/BGDesk.app
+   cd build && zip -yr bgdesk-suporte-darwin.zip BGDesk.app && rm -rf BGDesk.app && cd ..  
+   mv -f build/bgdesk-suporte-darwin.zip ../dist/
+
 }
 
-buildLinux()
+buildLinux_x86_64()
 {
-    echo "Building Linux"
-    docker build -t bgdesk-build -f docker/build-linux.dockerfile .
-    docker run -it -v $(pwd):/root/bgdesk bgdesk-build
+    echo "Building Linux-x86_64"
+    docker build --platform="linux/amd64" -t bgdesk-build-x86_64 -f docker/build-linux.dockerfile .
+    docker run --platform="linux/amd64" -it -v $(pwd):/root/bgdesk bgdesk-build-x86_64
+}
+
+buildLinux_aarch64()
+{
+    echo "Building Linux-aarch64"
+    docker --platform="linux/arm64" build -t bgdesk-build-aarch64 -f docker/build-linux.dockerfile .
+    docker --platform="linux/arm64" run -it -v $(pwd):/root/bgdesk bgdesk-build-aarch64
 }
 
 buildAndroid()
@@ -79,8 +110,12 @@ if [[ $FORCED_PLATFORM == "mac" ]]; then
    buildMac
    exit 0
 fi
-if [[ $FORCED_PLATFORM == "linux" ]]; then
-   buildLinux
+if [[ $FORCED_PLATFORM == "linux-x86_64" ]]; then
+   buildLinux_x86_64
+   exit 0
+fi
+if [[ $FORCED_PLATFORM == "linux-aarch64" ]]; then
+   buildLinux_aarch64
    exit 0
 fi
 if [[ $FORCED_PLATFORM == "android" ]]; then
@@ -99,6 +134,7 @@ if [[ $OS == *$MAC* ]]; then
 fi
 
 
-if [[ $OS == *$LINUX* ]]; then
-   buildLinux
+if [[ $OS == *$LINUX* && $ARCH == 'x86_64' ]]; then
+   buildLinux_x86_64
+   exit 0
 fi

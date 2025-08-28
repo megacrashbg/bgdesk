@@ -3,7 +3,11 @@
 <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>com.thinksoft.BGDesk_service</string>
+        <string>br.com.boagestao.BGDesk_service</string>
+
+	<key>AssociatedBundleIdentifiers</key>
+	<string>br.com.boagestao.bgdesk</string>
+    
         <key>KeepAlive</key>
         <true/>
         <key>ThrottleInterval</key>
