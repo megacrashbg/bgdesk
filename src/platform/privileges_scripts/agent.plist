@@ -3,7 +3,11 @@
 <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>com.thinksoft.BGDesk_server</string>
+        <string>br.com.boagestao.BGDesk_server</string>
+
+	<key>AssociatedBundleIdentifiers</key>
+	<string>br.com.boagestao.bgdesk</string>
+    
         <key>LimitLoadToSessionType</key>
         <array>
           <string>LoginWindow</string>

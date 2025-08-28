@@ -414,7 +414,7 @@ pub mod amyuni_idd {
     // The count of virtual displays plugged in.
     // This count is not accurate, because:
     // 1. The virtual display driver may also be controlled by other processes.
-    // 2. BGDesk may crash and restart, but the virtual displays are kept.
+    // 2. RustDesk may crash and restart, but the virtual displays are kept.
     //
     // to-do: Maybe a better way is to add an option asking the user if plug out all virtual displays on disconnect.
     static VIRTUAL_DISPLAY_COUNT: atomic::AtomicUsize = atomic::AtomicUsize::new(0);
@@ -659,7 +659,7 @@ pub mod amyuni_idd {
     // `index` the display index to plug out. -1 means plug out all.
     // `force_all` is used to forcibly plug out all virtual displays.
     // `force_one` is used to forcibly plug out one virtual display managed by other processes
-    //             if there're no virtual displays managed by BGDesk.
+    //             if there're no virtual displays managed by RustDesk.
     pub fn plug_out_monitor(index: i32, force_all: bool, force_one: bool) -> ResultType<()> {
         let plug_out_all = index == super::IDD_PLUG_OUT_ALL_INDEX;
         // If `plug_out_all and force_all` is true, forcibly plug out all virtual displays.

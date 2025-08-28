@@ -422,11 +422,11 @@ pub struct VersionCheckResponse {
     pub url: String,
 }
 
-pub const VER_TYPE_RUSTDESK_CLIENT: &str = "bgdesk-client";
-pub const VER_TYPE_RUSTDESK_SERVER: &str = "bgdesk-server";
+pub const VER_TYPE_RUSTDESK_CLIENT: &str = "rustdesk-client";
+pub const VER_TYPE_RUSTDESK_SERVER: &str = "rustdesk-server";
 
 pub fn version_check_request(typ: String) -> (VersionCheckRequest, String) {
-    const URL: &str = "https://bgdesk.boagestao.net/version/latest";
+    const URL: &str = "https://api.rustdesk.com/version/latest";
 
     use sysinfo::System;
     let system = System::new();
@@ -445,6 +445,20 @@ pub fn version_check_request(typ: String) -> (VersionCheckRequest, String) {
         },
         URL.to_string(),
     )
+}
+
+pub fn time_based_rand() -> u32 {
+    let nanos = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+
+    let mut x = nanos as u64;
+    x ^= x << 13;
+    x ^= x >> 7;
+    x ^= x << 17;
+
+    (x % 32768) as u32
 }
 
 #[cfg(test)]
