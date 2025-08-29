@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../res/logo-header.svg" alt="RustDesk - Your remote desktop"><br>
+  <img src="../res/logo-header.svg" alt="BGDesk - Your remote desktop"><br>
   <a href="#senpagaj-publikaj-serviloj">Serviloj</a> •
   <a href="#paŝoj-por-kompili">Kompili</a> •
   <a href="#kiel-kompili-kun-docker">Docker</a> •
@@ -11,11 +11,11 @@
 
 Babili kun ni: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/bgdesk) | [Reddit](https://www.reddit.com/r/bgdesk) | [YouTube](https://www.youtube.com/@bgdesk)
 
-[![RustDesk Server Pro](https://img.shields.io/badge/RustDesk%20Server%20Pro-Altnivela%20Funkcioj-blue)](https://bgdesk.com/pricing.html)
+[![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Altnivela%20Funkcioj-blue)](https://bgdesk.com/pricing.html)
 
 Denove alia fora labortabla programo, skribita en Rust. Ĝi funkcias elskatole, ne bezonas konfiguraĵon. Vi havas la tutan kontrolon sur viaj datumoj, sen zorgo pri sekureco. Vi povas uzi nian servilon rendezvous/relajsan, [agordi vian propran](https://bgdesk.com/server), aŭ [skribi vian propran servilon rendezvous/relajsan](https://github.com/boagestao/bgdesk-server-demo).
 
-RustDesk bonvenigas kontribuon de ĉiuj. Vidu [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) por helpo komenci.
+BGDesk bonvenigas kontribuon de ĉiuj. Vidu [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) por helpo komenci.
 
 [**BINARA ELŜUTO**](https://github.com/boagestao/bgdesk/releases)
 
@@ -124,7 +124,7 @@ Aŭ, se vi plenumas eldonan plenumeblan dosieron:
 target/release/bgdesk
 ```
 
-Bonvolu certigi, ke vi plenumas tiujn komandojn el la radiko de la deponejo RustDesk, alie la programo povus esti nekapabla de trovi la devigajn resursojn. Ankaŭ notu, ke la aliaj subkomandoj de cargo kiel `install` aŭ `run` momente ne estas subtenitaj per tiu metodo, ĉar instalus aŭ plenumus la programon en la kontenero anstataŭ de la gastiganto.
+Bonvolu certigi, ke vi plenumas tiujn komandojn el la radiko de la deponejo BGDesk, alie la programo povus esti nekapabla de trovi la devigajn resursojn. Ankaŭ notu, ke la aliaj subkomandoj de cargo kiel `install` aŭ `run` momente ne estas subtenitaj per tiu metodo, ĉar instalus aŭ plenumus la programon en la kontenero anstataŭ de la gastiganto.
 
 ## Dosierstrukturo
 

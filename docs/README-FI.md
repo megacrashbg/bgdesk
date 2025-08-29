@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../res/logo-header.svg" alt="RustDesk - Etätyöpöytäsi"><br>
+  <img src="../res/logo-header.svg" alt="BGDesk - Etätyöpöytäsi"><br>
   <a href="#free-public-servers">Palvelimet</a> •
   <a href="#raw-steps-to-build">Rakenna</a> •
   <a href="#how-to-build-with-docker">Docker</a> •
@@ -11,11 +11,11 @@
 
 Juttele meidän kanssa: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/bgdesk) | [Reddit](https://www.reddit.com/r/bgdesk) | [YouTube](https://www.youtube.com/@bgdesk)
 
-[![RustDesk Server Pro](https://img.shields.io/badge/RustDesk%20Server%20Pro-Edistyneet%20Ominaisuudet-blue)](https://bgdesk.com/pricing.html)
+[![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Edistyneet%20Ominaisuudet-blue)](https://bgdesk.com/pricing.html)
 
 Vielä yksi etätyöpöytäohjelmisto, ohjelmoitu Rust-kielellä. Toimii suoraan pakkauksesta, ei tarvitse asetusta. Hallitset täysin tietojasi, ei tarvitse murehtia turvallisuutta. Voit käyttää meidän rendezvous/relay-palvelinta, [aseta omasi](https://bgdesk.com/server), tai [kirjoittaa oma rendezvous/relay-palvelin](https://github.com/boagestao/bgdesk-server-demo).
 
-RustDesk toivottaa avustukset tervetulleiksi kaikilta. Katso lisätietoja [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) avun saamiseksi.
+BGDesk toivottaa avustukset tervetulleiksi kaikilta. Katso lisätietoja [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) avun saamiseksi.
 
 [**BINAARILATAUS**](https://github.com/boagestao/bgdesk/releases)
 
@@ -124,7 +124,7 @@ Tai, jos olet suorittamassa jakeluversion suoritettavaa tiedostoa:
 target/release/bgdesk
 ```
 
-Varmista, että suoritat näitä komentoja RustDesktop-tietovaraston juurihakemistossa, muutoin sovellus ei ehkä löydä vaadittuja resursseja. Huomaa myös, että muita cargo-alikomentoja kuten `install` tai `run` ei nykyisin tueta tässä menetelmässä, koska ne asentavat tai suorittavat ohjelman säiliön sisällä eikä isäntäohjelman sisällä.
+Varmista, että suoritat näitä komentoja BGDesktop-tietovaraston juurihakemistossa, muutoin sovellus ei ehkä löydä vaadittuja resursseja. Huomaa myös, että muita cargo-alikomentoja kuten `install` tai `run` ei nykyisin tueta tässä menetelmässä, koska ne asentavat tai suorittavat ohjelman säiliön sisällä eikä isäntäohjelman sisällä.
 
 ## Tiedostorakenne
 
