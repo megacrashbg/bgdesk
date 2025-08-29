@@ -478,7 +478,7 @@ function getElapsed(time, now) {
 }
 
 var ui_status_cache = [""];
-function check_update_ui() {
+function check_update_ui() { return false; 
     self.timer(1s, function() {
         var approve_mode = handler.get_option('approve-mode');
         var changed = false;
