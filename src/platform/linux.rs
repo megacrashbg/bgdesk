@@ -621,6 +621,7 @@ fn get_cm() -> bool {
 }
 
 pub fn is_login_wayland() -> bool {
+	return false; // BGDesk is_login_wayland
     let files = ["/etc/gdm3/custom.conf", "/etc/gdm/custom.conf"];
     match (
         Regex::new(r"# *WaylandEnable *= *false"),
@@ -640,7 +641,7 @@ pub fn is_login_wayland() -> bool {
 
 #[inline]
 pub fn current_is_wayland() -> bool {
-    return is_desktop_wayland() && unsafe { UNMODIFIED };
+    false
 }
 
 // to-do: test the other display manager
