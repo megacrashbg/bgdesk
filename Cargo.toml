@@ -197,7 +197,7 @@ members = ["libs/scrap", "libs/hbb_common", "libs/enigo", "libs/clipboard", "lib
 exclude = ["vdi/host", "examples/custom_plugin"]
 
 [package.metadata.winres]
-LegalCopyright = "Based on BGDesk. Copyright © 2025 Purslane Ltd and Thinksoft LTDA. All rights reserved."
+LegalCopyright = "Based on RustDesk. Copyright © 2025 Purslane Ltd and Thinksoft LTDA. All rights reserved."
 ProductName = "BGDesk"
 FileDescription = "BGDesk Remote Desktop"
 OriginalFilename = "bgdesk.exe"

@@ -34,7 +34,7 @@ BGDesk またはその依存関係へのコントリビュートは、GitHub の
 
 ## 行動規範
 
-https://github.com/boagestao/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
+https://github.com/bgdesk/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
 
 ## コミュニケーション
 

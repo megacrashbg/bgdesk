@@ -6,7 +6,7 @@
   <a href="#file-structure">Structure</a> •
   <a href="#snapshot">Snapshot</a><br>
   [<a href="../README.md">English</a>] | [<a href="README-UA.md">Українська</a>] | [<a href="README-CS.md">česky</a>] | [<a href="README-ZH.md">中文</a>] | [<a href="README-HU.md">Magyar</a>] | [<a href="README-ES.md">Español</a>] | [<a href="README-FA.md">فارسی</a>] | [<a href="README-FR.md">Français</a>] | [<a href="README-DE.md">Deutsch</a>] | [<a href="README-PL.md">Polski</a>] | [<a href="README-FI.md">Suomi</a>] | [<a href="README-ML.md">മലയാളം</a>] | [<a href="README-JP.md">日本語</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-IT.md">Italiano</a>] | [<a href="README-RU.md">Русский</a>] | [<a href="README-PTBR.md">Português (Brasil)</a>] | [<a href="README-EO.md">Esperanto</a>] | [<a href="README-KR.md">한국어</a>] | [<a href="README-AR.md">العربي</a>] | [<a href="README-VN.md">Tiếng Việt</a>] | [<a href="README-GR.md">Ελληνικά</a>]<br>
-  <b>Kami membutuhkan bantuanmu untuk menterjemahkan file README dan <a href="https://github.com/boagestao/bgdesk/tree/master/src/lang">BGDesk UI</a> ke Bahasa Indonesia</b>
+  <b>Kami membutuhkan bantuanmu untuk menterjemahkan file README dan <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">BGDesk UI</a> ke Bahasa Indonesia</b>
 </p>
 
 Mari mengobrol bersama kami: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/bgdesk) | [Reddit](https://www.reddit.com/r/bgdesk) | [YouTube](https://www.youtube.com/@bgdesk)
@@ -15,17 +15,17 @@ Mari mengobrol bersama kami: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter
 
 [![Open Bounties](https://img.shields.io/endpoint?url=https%3A%2F%2Fconsole.algora.io%2Fapi%2Fshields%2Fbgdesk%2Fbounties%3Fstatus%3Dopen)](https://console.algora.io/org/bgdesk/bounties?status=open)
 
-Merupakan perangkat lunak Remote Desktop yang baru, dan dibangun dengan Rust. Bahkan kamu bisa langsung menggunakannya tanpa perlu melakukan konfigurasi tambahan. Serta memiliki kontrol penuh terhadap semua data, tanpa perlu merasa was-was tentang isu keamanan, dan yang lebih menarik adalah memiliki opsi untuk menggunakan server rendezvous/relay milik kami, [konfigurasi server sendiri](https://bgdesk.com/server), atau [tulis rendezvous/relay server anda sendiri](https://github.com/boagestao/bgdesk-server-demo).
+Merupakan perangkat lunak Remote Desktop yang baru, dan dibangun dengan Rust. Bahkan kamu bisa langsung menggunakannya tanpa perlu melakukan konfigurasi tambahan. Serta memiliki kontrol penuh terhadap semua data, tanpa perlu merasa was-was tentang isu keamanan, dan yang lebih menarik adalah memiliki opsi untuk menggunakan server rendezvous/relay milik kami, [konfigurasi server sendiri](https://bgdesk.com/server), atau [tulis rendezvous/relay server anda sendiri](https://github.com/bgdesk/bgdesk-server-demo).
 
 ![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
 
 BGDesk mengajak semua orang untuk ikut berkontribusi. Lihat [`docs/CONTRIBUTING-ID.md`](CONTRIBUTING-ID.md) untuk melihat panduan.
 
-[**FAQ**](https://github.com/boagestao/bgdesk/wiki/FAQ)
+[**FAQ**](https://github.com/bgdesk/bgdesk/wiki/FAQ)
 
-[**UNDUH BINARY**](https://github.com/boagestao/bgdesk/releases)
+[**UNDUH BINARY**](https://github.com/bgdesk/bgdesk/releases)
 
-[**NIGHTLY BUILD**](https://github.com/boagestao/bgdesk/releases/tag/nightly)
+[**NIGHTLY BUILD**](https://github.com/bgdesk/bgdesk/releases/tag/nightly)
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
@@ -106,7 +106,7 @@ cd
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 mkdir -p target/debug
 wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
@@ -119,7 +119,7 @@ VCPKG_ROOT=$HOME/vcpkg cargo run
 Mulailah dengan melakukan kloning (clone) repositori dan build dengan docker container:
 
 ```sh
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 docker build -t "bgdesk-builder" .
 ```
@@ -146,14 +146,14 @@ Harap pastikan bahwa kamu menjalankan perintah ini dari repositori root BGDesk, 
 
 ## Struktur File
 
-- **[libs/hbb_common](https://github.com/boagestao/bgdesk/tree/master/libs/hbb_common)**: video codec, config, tcp/udp wrapper, protobuf, fs functions untuk transfer file, dan beberapa fungsi utilitas lainnya
-- **[libs/scrap](https://github.com/boagestao/bgdesk/tree/master/libs/scrap)**: screen capture
-- **[libs/enigo](https://github.com/boagestao/bgdesk/tree/master/libs/enigo)**: spesifikasi platform keyboard/mouse control
-- **[src/ui](https://github.com/boagestao/bgdesk/tree/master/src/ui)**: GUI
-- **[src/server](https://github.com/boagestao/bgdesk/tree/master/src/server)**: audio/clipboard/input/video services, dan network connections
-- **[src/client.rs](https://github.com/boagestao/bgdesk/tree/master/src/client.rs)**: start a peer connection
-- **[src/rendezvous_mediator.rs](https://github.com/boagestao/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Komunikasi dengan [bgdesk-server](https://github.com/boagestao/bgdesk-server), menunggu untuk remote direct (TCP hole punching) atau relayed connection
-- **[src/platform](https://github.com/boagestao/bgdesk/tree/master/src/platform)**: kode khusus platform
+- **[libs/hbb_common](https://github.com/bgdesk/bgdesk/tree/master/libs/hbb_common)**: video codec, config, tcp/udp wrapper, protobuf, fs functions untuk transfer file, dan beberapa fungsi utilitas lainnya
+- **[libs/scrap](https://github.com/bgdesk/bgdesk/tree/master/libs/scrap)**: screen capture
+- **[libs/enigo](https://github.com/bgdesk/bgdesk/tree/master/libs/enigo)**: spesifikasi platform keyboard/mouse control
+- **[src/ui](https://github.com/bgdesk/bgdesk/tree/master/src/ui)**: GUI
+- **[src/server](https://github.com/bgdesk/bgdesk/tree/master/src/server)**: audio/clipboard/input/video services, dan network connections
+- **[src/client.rs](https://github.com/bgdesk/bgdesk/tree/master/src/client.rs)**: start a peer connection
+- **[src/rendezvous_mediator.rs](https://github.com/bgdesk/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Komunikasi dengan [bgdesk-server](https://github.com/bgdesk/bgdesk-server), menunggu untuk remote direct (TCP hole punching) atau relayed connection
+- **[src/platform](https://github.com/bgdesk/bgdesk/tree/master/src/platform)**: kode khusus platform
 
 ## Snapshots
 

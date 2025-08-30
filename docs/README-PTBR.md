@@ -6,18 +6,18 @@
   <a href="#estrutura-de-arquivos">Estrutura</a> •
   <a href="#screenshots">Screenshots</a><br>
   [<a href="../README.md">English</a>] | [<a href="README-UA.md">Українська</a>] | [<a href="README-CS.md">česky</a>] | [<a href="README-ZH.md">中文</a>] | [<a href="README-HU.md">Magyar</a>] | [<a href="README-ES.md">Español</a>] | [<a href="README-FA.md">فارسی</a>] | [<a href="README-FR.md">Français</a>] | [<a href="README-DE.md">Deutsch</a>] | [<a href="README-PL.md">Polski</a>] | [<a href="README-ID.md">Indonesian</a>] | [<a href="README-FI.md">Suomi</a>] | [<a href="README-ML.md">മലയാളം</a>] | [<a href="README-JP.md">日本語</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-IT.md">Italiano</a>] | [<a href="README-RU.md">Русский</a>] | [<a href="README-EO.md">Esperanto</a>] | [<a href="README-KR.md">한국어</a>] | [<a href="README-AR.md">العربي</a>] | [<a href="README-VN.md">Tiếng Việt</a>] | [<a href="README-GR.md">Ελληνικά</a>]<br>
-  <b>Precisamos de sua ajuda para traduzir este README e a <a href="https://github.com/boagestao/bgdesk/tree/master/src/lang">UI do BGDesk</a> para sua língua nativa</b>
+  <b>Precisamos de sua ajuda para traduzir este README e a <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">UI do BGDesk</a> para sua língua nativa</b>
 </p>
 
 Converse conosco: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/bgdesk) | [Reddit](https://www.reddit.com/r/bgdesk) | [YouTube](https://www.youtube.com/@bgdesk)
 
 [![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Recursos%20Avan%C3%A7ados-blue)](https://bgdesk.com/pricing.html)
 
-Mais um software de desktop remoto, escrito em Rust. Funciona por padrão, sem necessidade de configuração. Você tem completo controle de seus dados, sem se preocupar com segurança. Você pode usar nossos servidores de rendezvous/relay, [configurar seu próprio](https://bgdesk.com/server), ou [escrever seu próprio servidor de rendezvous/relay](https://github.com/boagestao/bgdesk-server-demo).
+Mais um software de desktop remoto, escrito em Rust. Funciona por padrão, sem necessidade de configuração. Você tem completo controle de seus dados, sem se preocupar com segurança. Você pode usar nossos servidores de rendezvous/relay, [configurar seu próprio](https://bgdesk.com/server), ou [escrever seu próprio servidor de rendezvous/relay](https://github.com/bgdesk/bgdesk-server-demo).
 
 BGDesk acolhe contribuições de todos. Leia [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) para ver como começar.
 
-[**DOWNLOAD DE BINÁRIOS**](https://github.com/boagestao/bgdesk/releases)
+[**DOWNLOAD DE BINÁRIOS**](https://github.com/bgdesk/bgdesk/releases)
 
 ## Dependências
 
@@ -88,7 +88,7 @@ cd
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 mkdir -p target/debug
 wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
@@ -101,7 +101,7 @@ VCPKG_ROOT=$HOME/vcpkg cargo run
 Comece clonando o repositório e montando o container docker:
 
 ```sh
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 docker build -t "bgdesk-builder" .
 ```
@@ -128,14 +128,14 @@ Por favor verifique que está executando estes comandos da raiz do repositório 
 
 ## Estrutura de arquivos
 
-- **[libs/hbb_common](https://github.com/boagestao/bgdesk/tree/master/libs/hbb_common)**: codec de vídeo, configurações, wrapper de tcp/udp, protobuf, funções de sistema de arquivos para transferência de arquivos, e outras funções utilitárias
-- **[libs/scrap](https://github.com/boagestao/bgdesk/tree/master/libs/scrap)**: captura de tela
-- **[libs/enigo](https://github.com/boagestao/bgdesk/tree/master/libs/enigo)**: controle de teclado/mouse específico a cada plataforma
-- **[src/ui](https://github.com/boagestao/bgdesk/tree/master/src/ui)**: GUI
-- **[src/server](https://github.com/boagestao/bgdesk/tree/master/src/server)**: serviços de áudio/área de transferência/entrada/vídeo, e conexões de rede
-- **[src/client.rs](https://github.com/boagestao/bgdesk/tree/master/src/client.rs)**: iniciar uma conexão "peer to peer"
-- **[src/rendezvous_mediator.rs](https://github.com/boagestao/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Comunicação com [bgdesk-server](https://github.com/boagestao/bgdesk-server), aguardar pela conexão remota direta (TCP hole punching) ou conexão indireta (relayed)
-- **[src/platform](https://github.com/boagestao/bgdesk/tree/master/src/platform)**: código específico a cada plataforma
+- **[libs/hbb_common](https://github.com/bgdesk/bgdesk/tree/master/libs/hbb_common)**: codec de vídeo, configurações, wrapper de tcp/udp, protobuf, funções de sistema de arquivos para transferência de arquivos, e outras funções utilitárias
+- **[libs/scrap](https://github.com/bgdesk/bgdesk/tree/master/libs/scrap)**: captura de tela
+- **[libs/enigo](https://github.com/bgdesk/bgdesk/tree/master/libs/enigo)**: controle de teclado/mouse específico a cada plataforma
+- **[src/ui](https://github.com/bgdesk/bgdesk/tree/master/src/ui)**: GUI
+- **[src/server](https://github.com/bgdesk/bgdesk/tree/master/src/server)**: serviços de áudio/área de transferência/entrada/vídeo, e conexões de rede
+- **[src/client.rs](https://github.com/bgdesk/bgdesk/tree/master/src/client.rs)**: iniciar uma conexão "peer to peer"
+- **[src/rendezvous_mediator.rs](https://github.com/bgdesk/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Comunicação com [bgdesk-server](https://github.com/bgdesk/bgdesk-server), aguardar pela conexão remota direta (TCP hole punching) ou conexão indireta (relayed)
+- **[src/platform](https://github.com/bgdesk/bgdesk/tree/master/src/platform)**: código específico a cada plataforma
 
 > [!Cuidadob]
 > **Aviso de uso indevido:** <br>

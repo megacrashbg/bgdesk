@@ -6,7 +6,7 @@
   <a href="#dateistruktur">Dateistruktur</a> •
   <a href="#screenshots">Screenshots</a><br>
   [<a href="../README.md">English</a>] | [<a href="README-UA.md">Українська</a>] | [<a href="README-CS.md">česky</a>] | [<a href="README-ZH.md">中文</a>] | [<a href="README-HU.md">Magyar</a>] | [<a href="README-ES.md">Español</a>] | [<a href="README-FA.md">فارسی</a>] | [<a href="README-FR.md">Français</a>] | [<a href="README-PL.md">Polski</a>] | [<a href="README-ID.md">Indonesian</a>] | [<a href="README-FI.md">Suomi</a>] | [<a href="README-ML.md">മലയാളം</a>] | [<a href="README-JP.md">日本語</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-IT.md">Italiano</a>] | [<a href="README-RU.md">Русский</a>] | [<a href="README-PTBR.md">Português (Brasil)</a>] | [<a href="README-EO.md">Esperanto</a>] | [<a href="README-KR.md">한국어</a>] | [<a href="README-AR.md">العربي</a>] | [<a href="README-VN.md">Tiếng Việt</a>] | [<a href="README-DA.md">Dansk</a>] | [<a href="README-GR.md">Ελληνικά</a>]<br>
-  <b>Wir brauchen Ihre Hilfe, um dieses README, die <a href="https://github.com/boagestao/bgdesk/tree/master/src/lang">BGDesk-Benutzeroberfläche</a> und die <a href="https://github.com/bgdesk/doc.bgdesk.com">Dokumentation</a> in Ihre Muttersprache zu übersetzen.</b>
+  <b>Wir brauchen Ihre Hilfe, um dieses README, die <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">BGDesk-Benutzeroberfläche</a> und die <a href="https://github.com/bgdesk/doc.bgdesk.com">Dokumentation</a> in Ihre Muttersprache zu übersetzen.</b>
 </p>
 
 > [!Vorsicht]
@@ -18,17 +18,17 @@ Reden Sie mit uns auf: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](http
 
 [![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Erweiterte%20Funktionen-blue)](https://bgdesk.com/pricing.html)
 
-BGDesk ist eine in Rust geschriebene Remote-Desktop-Software, die out of the box ohne besondere Konfiguration funktioniert. Sie haben die volle Kontrolle über Ihre Daten und müssen sich keine Sorgen um die Sicherheit machen. Sie können unseren Rendezvous/Relay-Server nutzen, [einen eigenen Server aufsetzen](https://bgdesk.com/server) oder [einen eigenen Server programmieren](https://github.com/boagestao/bgdesk-server-demo).
+BGDesk ist eine in Rust geschriebene Remote-Desktop-Software, die out of the box ohne besondere Konfiguration funktioniert. Sie haben die volle Kontrolle über Ihre Daten und müssen sich keine Sorgen um die Sicherheit machen. Sie können unseren Rendezvous/Relay-Server nutzen, [einen eigenen Server aufsetzen](https://bgdesk.com/server) oder [einen eigenen Server programmieren](https://github.com/bgdesk/bgdesk-server-demo).
 
 ![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
 
 BGDesk heißt jegliche Mitarbeit willkommen. Schauen Sie sich [CONTRIBUTING-DE.md](CONTRIBUTING-DE.md) an, wenn Sie Unterstützung beim Start brauchen.
 
-[**FAQ**](https://github.com/boagestao/bgdesk/wiki/FAQ)
+[**FAQ**](https://github.com/bgdesk/bgdesk/wiki/FAQ)
 
-[**Programm herunterladen**](https://github.com/boagestao/bgdesk/releases)
+[**Programm herunterladen**](https://github.com/bgdesk/bgdesk/releases)
 
-[**Nächtliche Erstellung**](https://github.com/boagestao/bgdesk/releases/tag/nightly)
+[**Nächtliche Erstellung**](https://github.com/bgdesk/bgdesk/releases/tag/nightly)
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
@@ -114,7 +114,7 @@ cd
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 mkdir -p target/debug
 wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
@@ -127,7 +127,7 @@ VCPKG_ROOT=$HOME/vcpkg cargo run
 Beginnen Sie damit, das Repository zu klonen und den Docker-Container zu bauen:
 
 ```sh
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 docker build -t "bgdesk-builder" .
 ```
@@ -154,16 +154,16 @@ Bitte stellen Sie sicher, dass Sie diese Befehle im Stammverzeichnis des BGDesk-
 
 ## Dateistruktur
 
-- **[libs/hbb_common](https://github.com/boagestao/bgdesk/tree/master/libs/hbb_common)**: Video-Codec, Konfiguration, TCP/UDP-Wrapper, Protokoll-Puffer, fs-Funktionen für Dateitransfer und ein paar andere nützliche Funktionen
-- **[libs/scrap](https://github.com/boagestao/bgdesk/tree/master/libs/scrap)**: Bildschirmaufnahme
-- **[libs/enigo](https://github.com/boagestao/bgdesk/tree/master/libs/enigo)**: Plattformspezifische Maus- und Tastatursteuerung
-- **[src/ui](https://github.com/boagestao/bgdesk/tree/master/src/ui)**: GUI
-- **[src/server](https://github.com/boagestao/bgdesk/tree/master/src/server)**: Audio/Zwischenablage/Eingabe/Videodienste und Netzwerkverbindungen
-- **[src/client.rs](https://github.com/boagestao/bgdesk/tree/master/src/client.rs)**: Starten einer Peer-Verbindung
-- **[src/rendezvous_mediator.rs](https://github.com/boagestao/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Mit [bgdesk-server](https://github.com/boagestao/bgdesk-server) kommunizieren, warten auf direkte (TCP hole punching) oder weitergeleitete Verbindung
-- **[src/platform](https://github.com/boagestao/bgdesk/tree/master/src/platform)**: Plattformspezifischer Code
-- **[flutter](https://github.com/boagestao/bgdesk/tree/master/flutter)**: Flutter-Code für Handys
-- **[flutter/web/js](https://github.com/boagestao/bgdesk/tree/master/flutter/web/js)**: JavaScript für Flutter-Webclient
+- **[libs/hbb_common](https://github.com/bgdesk/bgdesk/tree/master/libs/hbb_common)**: Video-Codec, Konfiguration, TCP/UDP-Wrapper, Protokoll-Puffer, fs-Funktionen für Dateitransfer und ein paar andere nützliche Funktionen
+- **[libs/scrap](https://github.com/bgdesk/bgdesk/tree/master/libs/scrap)**: Bildschirmaufnahme
+- **[libs/enigo](https://github.com/bgdesk/bgdesk/tree/master/libs/enigo)**: Plattformspezifische Maus- und Tastatursteuerung
+- **[src/ui](https://github.com/bgdesk/bgdesk/tree/master/src/ui)**: GUI
+- **[src/server](https://github.com/bgdesk/bgdesk/tree/master/src/server)**: Audio/Zwischenablage/Eingabe/Videodienste und Netzwerkverbindungen
+- **[src/client.rs](https://github.com/bgdesk/bgdesk/tree/master/src/client.rs)**: Starten einer Peer-Verbindung
+- **[src/rendezvous_mediator.rs](https://github.com/bgdesk/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Mit [bgdesk-server](https://github.com/bgdesk/bgdesk-server) kommunizieren, warten auf direkte (TCP hole punching) oder weitergeleitete Verbindung
+- **[src/platform](https://github.com/bgdesk/bgdesk/tree/master/src/platform)**: Plattformspezifischer Code
+- **[flutter](https://github.com/bgdesk/bgdesk/tree/master/flutter)**: Flutter-Code für Handys
+- **[flutter/web/js](https://github.com/bgdesk/bgdesk/tree/master/flutter/web/js)**: JavaScript für Flutter-Webclient
 
 ## Screenshots
 

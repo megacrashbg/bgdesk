@@ -7,24 +7,24 @@
   <a href="#file-structure">Dosya Yapısı</a> •
   <a href="#snapshot">Ekran Görüntüleri</a><br>
   [<a href="docs/README-UA.md">Українська</a>] | [<a href="docs/README-CS.md">česky</a>] | [<a href="docs/README-ZH.md">中文</a>] | [<a href="docs/README-HU.md">Magyar</a>] | [<a href="docs/README-ES.md">Español</a>] | [<a href="docs/README-FA.md">فارسی</a>] | [<a href="docs/README-FR.md">Français</a>] | [<a href="docs/README-DE.md">Deutsch</a>] | [<a href="docs/README-PL.md">Polski</a>] | [<a href="docs/README-ID.md">Indonesian</a>] | [<a href="docs/README-FI.md">Suomi</a>] | [<a href="docs/README-ML.md">മലയാളം</a>] | [<a href="docs/README-JP.md">日本語</a>] | [<a href="docs/README-NL.md">Nederlands</a>] | [<a href="docs/README-IT.md">Italiano</a>] | [<a href="docs/README-RU.md">Русский</a>] | [<a href="docs/README-PTBR.md">Português (Brasil)</a>] | [<a href="docs/README-EO.md">Esperanto</a>] | [<a href="docs/README-KR.md">한국어</a>] | [<a href="docs/README-AR.md">العربي</a>] | [<a href="docs/README-VN.md">Tiếng Việt</a>] | [<a href="docs/README-DA.md">Dansk</a>] | [<a href="docs/README-GR.md">Ελληνικά</a>]<br>
-  <b>README, <a href="https://github.com/boagestao/bgdesk/tree/master/src/lang">BGDesk UI</a> ve <a href="https://github.com/bgdesk/doc.bgdesk.com">BGDesk Belge</a>'sini ana dilinize çevirmemiz için yardımınıza ihtiyacımız var</b>
+  <b>README, <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">BGDesk UI</a> ve <a href="https://github.com/bgdesk/doc.bgdesk.com">BGDesk Belge</a>'sini ana dilinize çevirmemiz için yardımınıza ihtiyacımız var</b>
 </p>
 
 Bizimle sohbet edin: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/bgdesk) | [Reddit](https://www.reddit.com/r/bgdesk) | [YouTube](https://www.youtube.com/@bgdesk)
 
 [![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Geli%C5%9Fmi%C5%9F%20%C3%96zellikler-blue)](https://bgdesk.com/pricing.html)
 
-Başka bir uzak masaüstü yazılımı daha, Rust dilinde yazılmış. Hemen kullanıma hazır, hiçbir yapılandırma gerektirmez. Verilerinizin tam kontrolünü elinizde tutarsınız ve güvenlikle ilgili endişeleriniz olmaz. Kendi buluş/iletme sunucumuzu kullanabilirsiniz, [kendi sunucunuzu kurabilirsiniz](https://bgdesk.com/server) veya [kendi buluş/iletme sunucunuzu yazabilirsiniz](https://github.com/boagestao/bgdesk-server-demo).
+Başka bir uzak masaüstü yazılımı daha, Rust dilinde yazılmış. Hemen kullanıma hazır, hiçbir yapılandırma gerektirmez. Verilerinizin tam kontrolünü elinizde tutarsınız ve güvenlikle ilgili endişeleriniz olmaz. Kendi buluş/iletme sunucumuzu kullanabilirsiniz, [kendi sunucunuzu kurabilirsiniz](https://bgdesk.com/server) veya [kendi buluş/iletme sunucunuzu yazabilirsiniz](https://github.com/bgdesk/bgdesk-server-demo).
 
 ![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
 
 BGDesk, herkesten katkıyı kabul eder. Başlamak için [CONTRIBUTING.md](CONTRIBUTING-TR.md) belgesine göz atın.
 
-[**SSS**](https://github.com/boagestao/bgdesk/wiki/FAQ)
+[**SSS**](https://github.com/bgdesk/bgdesk/wiki/FAQ)
 
-[**BİNARİ İNDİR**](https://github.com/boagestao/bgdesk/releases)
+[**BİNARİ İNDİR**](https://github.com/bgdesk/bgdesk/releases)
 
-[**NİGHTLY DERLEME**](https://github.com/boagestao/bgdesk/releases/tag/nightly)
+[**NİGHTLY DERLEME**](https://github.com/bgdesk/bgdesk/releases/tag/nightly)
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="F-Droid'de Alın"
@@ -113,7 +113,7 @@ cd
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 mkdir -p target/debug
 wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
@@ -126,7 +126,7 @@ VCPKG_ROOT=$HOME/vcpkg cargo run
 Öncelikle deposunu klonlayın ve Docker konteynerini oluşturun:
 
 ```sh
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 docker build -t "bgdesk-builder" .
 ```
@@ -155,16 +155,16 @@ Lütfen bu komutları BGDesk deposunun kökünden çalıştırdığınızdan emi
  
 ## Dosya Yapısı
 
-- **[libs/hbb_common](https://github.com/boagestao/bgdesk/tree/master/libs/hbb_common)**: video kodlayıcı, yapılandırma, tcp/udp sarmalayıcı, protobuf, dosya transferi için fs işlevleri ve diğer bazı yardımcı işlevler
-- **[libs/scrap](https://github.com/boagestao/bgdesk/tree/master/libs/scrap)**: ekran yakalama
-- **[libs/enigo](https://github.com/boagestao/bgdesk/tree/master/libs/enigo)**: platforma özgü klavye/fare kontrolü
-- **[src/ui](https://github.com/boagestao/bgdesk/tree/master/src/ui)**: GUI
-- **[src/server](https://github.com/boagestao/bgdesk/tree/master/src/server)**: ses/pasta/klavye/video hizmetleri ve ağ bağlantıları
-- **[src/client.rs](https://github.com/boagestao/bgdesk/tree/master/src/client.rs)**: bir eş bağlantısı başlatır
-- **[src/rendezvous_mediator.rs](https://github.com/boagestao/bgdesk/tree/master/src/rendezvous_mediator.rs)**: [bgdesk-server](https://github.com/boagestao/bgdesk-server) ile iletişim kurar, uzak doğrudan (TCP delik vurma) veya iletme bağlantısını bekler
-- **[src/platform](https://github.com/boagestao/bgdesk/tree/master/src/platform)**: platforma özgü kod
-- **[flutter](https://github.com/boagestao/bgdesk/tree/master/flutter)**: mobil için Flutter kodu
-- **[flutter/web/js](https://github.com/boagestao/bgdesk/tree/master/flutter/web/js)**: Flutter web istemcisi için JavaScript
+- **[libs/hbb_common](https://github.com/bgdesk/bgdesk/tree/master/libs/hbb_common)**: video kodlayıcı, yapılandırma, tcp/udp sarmalayıcı, protobuf, dosya transferi için fs işlevleri ve diğer bazı yardımcı işlevler
+- **[libs/scrap](https://github.com/bgdesk/bgdesk/tree/master/libs/scrap)**: ekran yakalama
+- **[libs/enigo](https://github.com/bgdesk/bgdesk/tree/master/libs/enigo)**: platforma özgü klavye/fare kontrolü
+- **[src/ui](https://github.com/bgdesk/bgdesk/tree/master/src/ui)**: GUI
+- **[src/server](https://github.com/bgdesk/bgdesk/tree/master/src/server)**: ses/pasta/klavye/video hizmetleri ve ağ bağlantıları
+- **[src/client.rs](https://github.com/bgdesk/bgdesk/tree/master/src/client.rs)**: bir eş bağlantısı başlatır
+- **[src/rendezvous_mediator.rs](https://github.com/bgdesk/bgdesk/tree/master/src/rendezvous_mediator.rs)**: [bgdesk-server](https://github.com/bgdesk/bgdesk-server) ile iletişim kurar, uzak doğrudan (TCP delik vurma) veya iletme bağlantısını bekler
+- **[src/platform](https://github.com/bgdesk/bgdesk/tree/master/src/platform)**: platforma özgü kod
+- **[flutter](https://github.com/bgdesk/bgdesk/tree/master/flutter)**: mobil için Flutter kodu
+- **[flutter/web/js](https://github.com/bgdesk/bgdesk/tree/master/flutter/web/js)**: Flutter web istemcisi için JavaScript
 
 > [!Dikkat]
 > **Yanlış Kullanım Uyarısı:** <br>

@@ -5,7 +5,7 @@
   <a href="#структура-файлов">Структура файлов</a> •
   <a href="#скриншоты">Скриншоты</a><br>
   [<a href="../README.md">English</a>] | [<a href="README-UA.md">Українська</a>] | [<a href="README-CS.md">česky</a>] | [<a href="README-ZH.md">中文</a>] | [<a href="README-HU.md">Magyar</a>] | [<a href="README-ES.md">Español</a>] | [<a href="README-FA.md">فارسی</a>] | [<a href="README-FR.md">Français</a>] | [<a href="README-DE.md">Deutsch</a>] | [<a href="README-PL.md">Polski</a>] | [<a href="README-ID.md">Indonesian</a>] | [<a href="README-FI.md">Suomi</a>] | [<a href="README-ML.md">മലയാളം</a>] | [<a href="README-JP.md">日本語</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-IT.md">Italiano</a>] | [<a href="README-PTBR.md">Português (Brasil)</a>] | [<a href="README-EO.md">Esperanto</a>] | [<a href="README-KR.md">한국어</a>] | [<a href="README-AR.md">العربي</a>] | [<a href="README-VN.md">Tiếng Việt</a>] | [<a href="README-GR.md">Ελληνικά</a>]<br>
-  <b>Нам нужна ваша помощь в переводе этого README, <a href="https://github.com/boagestao/bgdesk/tree/master/src/lang">интерфейса BGDesk</a>
+  <b>Нам нужна ваша помощь в переводе этого README, <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">интерфейса BGDesk</a>
      и <a href="https://github.com/bgdesk/doc.bgdesk.com">документации BGDesk</a> на ваш родной язык.</b>
 </p>
 
@@ -17,19 +17,19 @@
 
 [![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-blue)](https://bgdesk.com/pricing.html)
 
-Ещё одно программное обеспечение для удаленного рабочего стола, написанное на Rust. Работает из коробки, настройки не требует. Вы полностью контролируете свои данные, не беспокоясь о безопасности. Вы можете использовать наш сервер ретрансляции, [настроить свой собственный](https://bgdesk.com/server), или [написать свой](https://github.com/boagestao/bgdesk-server-demo).
+Ещё одно программное обеспечение для удаленного рабочего стола, написанное на Rust. Работает из коробки, настройки не требует. Вы полностью контролируете свои данные, не беспокоясь о безопасности. Вы можете использовать наш сервер ретрансляции, [настроить свой собственный](https://bgdesk.com/server), или [написать свой](https://github.com/bgdesk/bgdesk-server-demo).
 
 ![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
 
 BGDesk приветствует вклад каждого. Ознакомьтесь с [`docs/CONTRIBUTING-RU.md`](CONTRIBUTING-RU.md) в начале работы для понимания.
 
-[**Как работает BGDesk?**](https://github.com/boagestao/bgdesk/wiki/How-does-BGDesk-work%3F) (Документация на английском языке)
+[**Как работает BGDesk?**](https://github.com/bgdesk/bgdesk/wiki/How-does-BGDesk-work%3F) (Документация на английском языке)
 
-[**Часто задаваемые вопросы**](https://github.com/boagestao/bgdesk/wiki/FAQ) (Страница на английском языке)
+[**Часто задаваемые вопросы**](https://github.com/bgdesk/bgdesk/wiki/FAQ) (Страница на английском языке)
 
-[**СКАЧАТЬ ПРИЛОЖЕНИЕ**](https://github.com/boagestao/bgdesk/releases)
+[**СКАЧАТЬ ПРИЛОЖЕНИЕ**](https://github.com/bgdesk/bgdesk/releases)
 
-[**НОЧНЫЕ СБОРКИ (Актуальные)**](https://github.com/boagestao/bgdesk/releases/tag/nightly)
+[**НОЧНЫЕ СБОРКИ (Актуальные)**](https://github.com/bgdesk/bgdesk/releases/tag/nightly)
 
 [<img src="https://f-droid.org/badge/get-it-on.png"
     alt="Get it on F-Droid"
@@ -40,7 +40,7 @@ BGDesk приветствует вклад каждого. Ознакомьте�
 
 ## Зависимости
 
-Для ПК-версии используются библиотеки Flutter или Sciter (устаревшее) для графического интерфейса. Данное руководство подразумевает работу с Sciter, так как он более простой в использовании и с ним легче начать работу. Вы можете также посмотреть на механизм нашего [CI](https://github.com/boagestao/bgdesk/blob/master/.github/workflows/flutter-build.yml) для сборок на Flutter.
+Для ПК-версии используются библиотеки Flutter или Sciter (устаревшее) для графического интерфейса. Данное руководство подразумевает работу с Sciter, так как он более простой в использовании и с ним легче начать работу. Вы можете также посмотреть на механизм нашего [CI](https://github.com/bgdesk/bgdesk/blob/master/.github/workflows/flutter-build.yml) для сборок на Flutter.
 
 Загрузите динамическую библиотеку Flutter самостоятельно.
 
@@ -119,7 +119,7 @@ cd
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
-git clone --recurse-submodules https://github.com/boagestao/bgdesk
+git clone --recurse-submodules https://github.com/bgdesk/bgdesk
 cd bgdesk
 mkdir -p target/debug
 wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
@@ -132,7 +132,7 @@ VCPKG_ROOT=$HOME/vcpkg cargo run
 Начните с клонирования репозитория и создания docker-контейнера:
 
 ```sh
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 git submodule update --init --recursive
 docker build -t "bgdesk-builder" .
@@ -160,24 +160,24 @@ target/release/bgdesk
 
 ## Структура файлов
 
-- **[libs/hbb_common](https://github.com/boagestao/bgdesk/tree/master/libs/hbb_common)**: видеокодек, конфигурация, враппер TCP/UDP, protobuf, функции файловой системы для передачи файлов и некоторые другие служебные функции
-- **[libs/scrap](https://github.com/boagestao/bgdesk/tree/master/libs/scrap)**: захват экрана
-- **[libs/enigo](https://github.com/boagestao/bgdesk/tree/master/libs/enigo)**: специфичное для платформы управление клавиатурой/мышью
-- **[libs/clipboard](https://github.com/boagestao/bgdesk/tree/master/libs/clipboard)**: функционал буфера обмена файлами для Windows, Linux, и macOS
-- **[src/ui](https://github.com/boagestao/bgdesk/tree/master/src/ui)**: графический пользовательский интерфейс на Sciter (устаревшее)
-- **[src/server](https://github.com/boagestao/bgdesk/tree/master/src/server)**: сервисы аудио, буфера обмена, ввода, видео и сетевых подключений
-- **[src/client.rs](https://github.com/boagestao/bgdesk/tree/master/src/client.rs)**: одноранговое соединение
-- **[src/rendezvous_mediator.rs](https://github.com/boagestao/bgdesk/tree/master/src/rendezvous_mediator.rs)**: связь с [сервером Rustdesk](https://github.com/boagestao/bgdesk-server), ожидает удаленного прямого (через TCP hole punching) или ретранслируемого соединения
-- **[src/platform](https://github.com/boagestao/bgdesk/tree/master/src/platform)**: специфичный для платформы код
-- **[flutter](https://github.com/boagestao/bgdesk/tree/master/flutter)**: код Flutter для ПК-версии и мобильных устройств
-- **[flutter/web/js](https://github.com/boagestao/bgdesk/tree/master/flutter/web/v1/js)**: JavaScript для Web-клиента Flutter
+- **[libs/hbb_common](https://github.com/bgdesk/bgdesk/tree/master/libs/hbb_common)**: видеокодек, конфигурация, враппер TCP/UDP, protobuf, функции файловой системы для передачи файлов и некоторые другие служебные функции
+- **[libs/scrap](https://github.com/bgdesk/bgdesk/tree/master/libs/scrap)**: захват экрана
+- **[libs/enigo](https://github.com/bgdesk/bgdesk/tree/master/libs/enigo)**: специфичное для платформы управление клавиатурой/мышью
+- **[libs/clipboard](https://github.com/bgdesk/bgdesk/tree/master/libs/clipboard)**: функционал буфера обмена файлами для Windows, Linux, и macOS
+- **[src/ui](https://github.com/bgdesk/bgdesk/tree/master/src/ui)**: графический пользовательский интерфейс на Sciter (устаревшее)
+- **[src/server](https://github.com/bgdesk/bgdesk/tree/master/src/server)**: сервисы аудио, буфера обмена, ввода, видео и сетевых подключений
+- **[src/client.rs](https://github.com/bgdesk/bgdesk/tree/master/src/client.rs)**: одноранговое соединение
+- **[src/rendezvous_mediator.rs](https://github.com/bgdesk/bgdesk/tree/master/src/rendezvous_mediator.rs)**: связь с [сервером Rustdesk](https://github.com/bgdesk/bgdesk-server), ожидает удаленного прямого (через TCP hole punching) или ретранслируемого соединения
+- **[src/platform](https://github.com/bgdesk/bgdesk/tree/master/src/platform)**: специфичный для платформы код
+- **[flutter](https://github.com/bgdesk/bgdesk/tree/master/flutter)**: код Flutter для ПК-версии и мобильных устройств
+- **[flutter/web/js](https://github.com/bgdesk/bgdesk/tree/master/flutter/web/v1/js)**: JavaScript для Web-клиента Flutter
 
 ## Скриншоты
 
-![Менеджер соединений](https://github.com/boagestao/bgdesk/assets/28412477/db82d4e7-c4bc-4823-8e6f-6af7eadf7651)
+![Менеджер соединений](https://github.com/bgdesk/bgdesk/assets/28412477/db82d4e7-c4bc-4823-8e6f-6af7eadf7651)
 
-![Подключение к удалённому рабочему столу на Windows](https://github.com/boagestao/bgdesk/assets/28412477/9baa91e9-3362-4d06-aa1a-7518edcbd7ea)
+![Подключение к удалённому рабочему столу на Windows](https://github.com/bgdesk/bgdesk/assets/28412477/9baa91e9-3362-4d06-aa1a-7518edcbd7ea)
 
-![Передача файлов](https://github.com/boagestao/bgdesk/assets/28412477/39511ad3-aa9a-4f8c-8947-1cce286a46ad)
+![Передача файлов](https://github.com/bgdesk/bgdesk/assets/28412477/39511ad3-aa9a-4f8c-8947-1cce286a46ad)
 
-![TCP-туннелирование](https://github.com/boagestao/bgdesk/assets/28412477/78e8708f-e87e-4570-8373-1360033ea6c5)
+![TCP-туннелирование](https://github.com/bgdesk/bgdesk/assets/28412477/78e8708f-e87e-4570-8373-1360033ea6c5)

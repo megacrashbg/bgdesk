@@ -13,11 +13,11 @@ Chattez avec nous : [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https:/
 
 [![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Fonctionnalit%C3%A9s%20Avanc%C3%A9es-blue)](https://bgdesk.com/pricing.html)
 
-Encore un autre logiciel de bureau à distance, écrit en Rust. Fonctionne directement, aucune configuration n'est nécessaire. Vous avez le contrôle total de vos données, sans aucun souci de sécurité. Vous pouvez utiliser notre serveur de rendez-vous/relais, [configurer le vôtre](https://bgdesk.com/server), ou [écrire votre propre serveur de rendez-vous/relais](https://github.com/boagestao/bgdesk-server-demo).
+Encore un autre logiciel de bureau à distance, écrit en Rust. Fonctionne directement, aucune configuration n'est nécessaire. Vous avez le contrôle total de vos données, sans aucun souci de sécurité. Vous pouvez utiliser notre serveur de rendez-vous/relais, [configurer le vôtre](https://bgdesk.com/server), ou [écrire votre propre serveur de rendez-vous/relais](https://github.com/bgdesk/bgdesk-server-demo).
 
 BGDesk accueille les contributions de tout le monde. Voir [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) pour plus d'informations.
 
-[**TÉLÉCHARGEMENT BINAIRE**](https://github.com/boagestao/bgdesk/releases)
+[**TÉLÉCHARGEMENT BINAIRE**](https://github.com/bgdesk/bgdesk/releases)
 
 ## Dépendances
 
@@ -88,7 +88,7 @@ cd
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 mkdir -p target/debug
 wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
@@ -101,7 +101,7 @@ Exécution du cargo
 Commencez par cloner le dépôt et construire le conteneur Docker :
 
 ```sh
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 docker build -t "bgdesk-builder" .
 ```
@@ -128,14 +128,14 @@ Veuillez vous assurer que vous exécutez ces commandes à partir de la racine du
 
 ## Structure du projet
 
-- **[libs/hbb_common](https://github.com/boagestao/bgdesk/tree/master/libs/hbb_common)** : codec vidéo, config, wrapper tcp/udp, protobuf, fonctions fs pour le transfert de fichiers, et quelques autres fonctions utilitaires.
-- **[libs/scrap](https://github.com/boagestao/bgdesk/tree/master/libs/scrap)** : capture d'écran
-- **[libs/enigo](https://github.com/boagestao/bgdesk/tree/master/libs/enigo)** : contrôle clavier/souris spécifique à la plate-forme
-- **[src/ui](https://github.com/boagestao/bgdesk/tree/master/src/ui)** : interface graphique
-- **[src/server](https://github.com/boagestao/bgdesk/tree/master/src/server)** : services audio/clipboard/input/vidéo, et connexions réseau
-- **[src/client.rs](https://github.com/boagestao/bgdesk/tree/master/src/client.rs)** : démarrer une connexion entre pairs
-- **[src/rendezvous_mediator.rs](https://github.com/boagestao/bgdesk/tree/master/src/rendezvous_mediator.rs)** : Communiquer avec [bgdesk-server](https://github.com/boagestao/bgdesk-server), attendre une connexion distante directe (TCP hole punching) ou relayée.
-- **[src/platform](https://github.com/boagestao/bgdesk/tree/master/src/platform)** : code spécifique à la plateforme
+- **[libs/hbb_common](https://github.com/bgdesk/bgdesk/tree/master/libs/hbb_common)** : codec vidéo, config, wrapper tcp/udp, protobuf, fonctions fs pour le transfert de fichiers, et quelques autres fonctions utilitaires.
+- **[libs/scrap](https://github.com/bgdesk/bgdesk/tree/master/libs/scrap)** : capture d'écran
+- **[libs/enigo](https://github.com/bgdesk/bgdesk/tree/master/libs/enigo)** : contrôle clavier/souris spécifique à la plate-forme
+- **[src/ui](https://github.com/bgdesk/bgdesk/tree/master/src/ui)** : interface graphique
+- **[src/server](https://github.com/bgdesk/bgdesk/tree/master/src/server)** : services audio/clipboard/input/vidéo, et connexions réseau
+- **[src/client.rs](https://github.com/bgdesk/bgdesk/tree/master/src/client.rs)** : démarrer une connexion entre pairs
+- **[src/rendezvous_mediator.rs](https://github.com/bgdesk/bgdesk/tree/master/src/rendezvous_mediator.rs)** : Communiquer avec [bgdesk-server](https://github.com/bgdesk/bgdesk-server), attendre une connexion distante directe (TCP hole punching) ou relayée.
+- **[src/platform](https://github.com/bgdesk/bgdesk/tree/master/src/platform)** : code spécifique à la plateforme
 
 > [!Attention]
 > **Avertissement contre l'utilisation abusive:** <br>

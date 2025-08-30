@@ -43,7 +43,7 @@ Voor specifieke git instructies, zie [GitHub workflow 101](https://github.com/se
 
 ## Gedrag
 
-https://github.com/boagestao/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
+https://github.com/bgdesk/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
 
 ## Communicatie
 

@@ -17,15 +17,15 @@ Chatea con nosotros: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https:
 
 [![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Caracter%C3%ADsticas%20Avanzadas-blue)](https://bgdesk.com/pricing.html)
 
-Otro software de escritorio remoto, escrito en Rust. Funciona de forma inmediata, sin necesidad de configuración. Tienes el control total de tus datos, sin preocupaciones sobre la seguridad. Puedes utilizar nuestro servidor de rendezvous/relay, [instalar el tuyo](https://bgdesk.com/server), o [escribir tu propio servidor rendezvous/relay](https://github.com/boagestao/bgdesk-server-demo).
+Otro software de escritorio remoto, escrito en Rust. Funciona de forma inmediata, sin necesidad de configuración. Tienes el control total de tus datos, sin preocupaciones sobre la seguridad. Puedes utilizar nuestro servidor de rendezvous/relay, [instalar el tuyo](https://bgdesk.com/server), o [escribir tu propio servidor rendezvous/relay](https://github.com/bgdesk/bgdesk-server-demo).
 
 ![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
 
 BGDesk agradece la contribución de todo el mundo. Lee [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) para ayuda para empezar.
 
-[**¿Cómo funciona bgdesk?**](https://github.com/boagestao/bgdesk/wiki/How-does-BGDesk-work%3F)
+[**¿Cómo funciona bgdesk?**](https://github.com/bgdesk/bgdesk/wiki/How-does-BGDesk-work%3F)
 
-[**DESCARGA DE BINARIOS**](https://github.com/boagestao/bgdesk/releases)
+[**DESCARGA DE BINARIOS**](https://github.com/bgdesk/bgdesk/releases)
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
@@ -36,7 +36,7 @@ BGDesk agradece la contribución de todo el mundo. Lee [`docs/CONTRIBUTING.md`](
 
 ## Dependencias
 
-Las versiones de escritorio utilizan Flutter o Sciter (obsoleto) para GUI, este tutorial es sólo para Sciter, ya que es más fácil y más amigable para empezar. Echa un vistazo a nuestro [CI](https://github.com/boagestao/bgdesk/blob/master/.github/workflows/flutter-build.yml) para la construcción de la versión Flutter.
+Las versiones de escritorio utilizan Flutter o Sciter (obsoleto) para GUI, este tutorial es sólo para Sciter, ya que es más fácil y más amigable para empezar. Echa un vistazo a nuestro [CI](https://github.com/bgdesk/bgdesk/blob/master/.github/workflows/flutter-build.yml) para la construcción de la versión Flutter.
 
 Por favor descarga la librería dinámica de Sciter tú mismo.
 
@@ -113,7 +113,7 @@ cd
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
-git clone --recurse-submodules https://github.com/boagestao/bgdesk
+git clone --recurse-submodules https://github.com/bgdesk/bgdesk
 cd bgdesk
 mkdir -p target/debug
 wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
@@ -126,7 +126,7 @@ VCPKG_ROOT=$HOME/vcpkg cargo run
 Empieza clonando el repositorio y compilando el contenedor de docker:
 
 ```sh
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 git submodule update --init --recursive
 docker build -t "bgdesk-builder" .
@@ -154,16 +154,16 @@ Por favor, asegurate de que estás ejecutando estos comandos desde la raíz del 
 
 ## Estructura de archivos
 
-- **[libs/hbb_common](https://github.com/boagestao/bgdesk/tree/master/libs/hbb_common)**:  codec de video, configuración, tcp/udp wrapper, protobuf, funciones para transferencia de archivos, y otras funciones de utilidad.
-- **[libs/scrap](https://github.com/boagestao/bgdesk/tree/master/libs/scrap)**: captura de pantalla
-- **[libs/enigo](https://github.com/boagestao/bgdesk/tree/master/libs/enigo)**: control del teclado/mouse especificos de cada plataforma
-- **[src/ui](https://github.com/boagestao/bgdesk/tree/master/src/ui)**: GUI
-- **[src/server](https://github.com/boagestao/bgdesk/tree/master/src/server)**: sonido/portapapeles/input/servicios de video, y conexiones de red
-- **[src/client.rs](https://github.com/boagestao/bgdesk/tree/master/src/client.rs)**: iniciar una conexión "peer to peer"
-- **[src/rendezvous_mediator.rs](https://github.com/boagestao/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Comunicación con [bgdesk-server](https://github.com/boagestao/bgdesk-server), esperar la conexión remota directa ("TCP hole punching") o conexión indirecta ("relayed")
-- **[src/platform](https://github.com/boagestao/bgdesk/tree/master/src/platform)**: código específico de cada plataforma
-- **[flutter](https://github.com/boagestao/bgdesk/tree/master/flutter)**: Flutter, código para moviles
-- **[flutter/web/js](https://github.com/boagestao/bgdesk/tree/master/flutter/web/js)**: Javascript para el cliente web Flutter
+- **[libs/hbb_common](https://github.com/bgdesk/bgdesk/tree/master/libs/hbb_common)**:  codec de video, configuración, tcp/udp wrapper, protobuf, funciones para transferencia de archivos, y otras funciones de utilidad.
+- **[libs/scrap](https://github.com/bgdesk/bgdesk/tree/master/libs/scrap)**: captura de pantalla
+- **[libs/enigo](https://github.com/bgdesk/bgdesk/tree/master/libs/enigo)**: control del teclado/mouse especificos de cada plataforma
+- **[src/ui](https://github.com/bgdesk/bgdesk/tree/master/src/ui)**: GUI
+- **[src/server](https://github.com/bgdesk/bgdesk/tree/master/src/server)**: sonido/portapapeles/input/servicios de video, y conexiones de red
+- **[src/client.rs](https://github.com/bgdesk/bgdesk/tree/master/src/client.rs)**: iniciar una conexión "peer to peer"
+- **[src/rendezvous_mediator.rs](https://github.com/bgdesk/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Comunicación con [bgdesk-server](https://github.com/bgdesk/bgdesk-server), esperar la conexión remota directa ("TCP hole punching") o conexión indirecta ("relayed")
+- **[src/platform](https://github.com/bgdesk/bgdesk/tree/master/src/platform)**: código específico de cada plataforma
+- **[flutter](https://github.com/bgdesk/bgdesk/tree/master/flutter)**: Flutter, código para moviles
+- **[flutter/web/js](https://github.com/bgdesk/bgdesk/tree/master/flutter/web/js)**: Javascript para el cliente web Flutter
 
 > [!Precaución]
 > **Descargo de responsabilidad por uso indebido:** <br>
@@ -171,10 +171,10 @@ Por favor, asegurate de que estás ejecutando estos comandos desde la raíz del 
 
 ## Capturas de pantalla
 
-![Connection Manager](https://github.com/boagestao/bgdesk/assets/28412477/db82d4e7-c4bc-4823-8e6f-6af7eadf7651)
+![Connection Manager](https://github.com/bgdesk/bgdesk/assets/28412477/db82d4e7-c4bc-4823-8e6f-6af7eadf7651)
 
-![Connected to a Windows PC](https://github.com/boagestao/bgdesk/assets/28412477/9baa91e9-3362-4d06-aa1a-7518edcbd7ea)
+![Connected to a Windows PC](https://github.com/bgdesk/bgdesk/assets/28412477/9baa91e9-3362-4d06-aa1a-7518edcbd7ea)
 
-![File Transfer](https://github.com/boagestao/bgdesk/assets/28412477/39511ad3-aa9a-4f8c-8947-1cce286a46ad)
+![File Transfer](https://github.com/bgdesk/bgdesk/assets/28412477/39511ad3-aa9a-4f8c-8947-1cce286a46ad)
 
-![TCP Tunneling](https://github.com/boagestao/bgdesk/assets/28412477/78e8708f-e87e-4570-8373-1360033ea6c5)
+![TCP Tunneling](https://github.com/bgdesk/bgdesk/assets/28412477/78e8708f-e87e-4570-8373-1360033ea6c5)

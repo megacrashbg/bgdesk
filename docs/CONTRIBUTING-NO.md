@@ -39,7 +39,7 @@ For spesefike git instruksjoner, se [GitHub workflow 101](https://github.com/ser
 
 ## Oppførsel
 
-https://github.com/boagestao/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
+https://github.com/bgdesk/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
 
 ## Kommunikasjon
 

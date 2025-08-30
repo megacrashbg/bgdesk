@@ -39,7 +39,7 @@ BGDesk 또는 그 종속성에 대한 기여는 GitHub 풀 리퀘스트 형태�
 
 ## 행동 강령
 
-https://github.com/boagestao/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
+https://github.com/bgdesk/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
 
 ## 커뮤니케이션
 

@@ -13,11 +13,11 @@ Juttele meidän kanssa: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](htt
 
 [![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Edistyneet%20Ominaisuudet-blue)](https://bgdesk.com/pricing.html)
 
-Vielä yksi etätyöpöytäohjelmisto, ohjelmoitu Rust-kielellä. Toimii suoraan pakkauksesta, ei tarvitse asetusta. Hallitset täysin tietojasi, ei tarvitse murehtia turvallisuutta. Voit käyttää meidän rendezvous/relay-palvelinta, [aseta omasi](https://bgdesk.com/server), tai [kirjoittaa oma rendezvous/relay-palvelin](https://github.com/boagestao/bgdesk-server-demo).
+Vielä yksi etätyöpöytäohjelmisto, ohjelmoitu Rust-kielellä. Toimii suoraan pakkauksesta, ei tarvitse asetusta. Hallitset täysin tietojasi, ei tarvitse murehtia turvallisuutta. Voit käyttää meidän rendezvous/relay-palvelinta, [aseta omasi](https://bgdesk.com/server), tai [kirjoittaa oma rendezvous/relay-palvelin](https://github.com/bgdesk/bgdesk-server-demo).
 
 BGDesk toivottaa avustukset tervetulleiksi kaikilta. Katso lisätietoja [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) avun saamiseksi.
 
-[**BINAARILATAUS**](https://github.com/boagestao/bgdesk/releases)
+[**BINAARILATAUS**](https://github.com/bgdesk/bgdesk/releases)
 
 ## Riippuvuudet
 
@@ -88,7 +88,7 @@ cd
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 mkdir -p target/debug
 wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
@@ -101,7 +101,7 @@ VCPKG_ROOT=$HOME/vcpkg cargo run
 Aloita kloonaamalla tietovarasto ja rakentamalla docker-säiliö:
 
 ```sh
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 docker build -t "bgdesk-builder" .
 ```
@@ -128,14 +128,14 @@ Varmista, että suoritat näitä komentoja BGDesktop-tietovaraston juurihakemist
 
 ## Tiedostorakenne
 
-- **[libs/hbb_common](https://github.com/boagestao/bgdesk/tree/master/libs/hbb_common)**: video codec, config, tcp/udp wrapper, protobuf, fs-funktiot tiedostosiirtoon, ja jotkut muut apuohjelmafunktiot
-- **[libs/scrap](https://github.com/boagestao/bgdesk/tree/master/libs/scrap)**: näyttökaappaukset
-- **[libs/enigo](https://github.com/boagestao/bgdesk/tree/master/libs/enigo)**: platform specific keyboard/mouse control
-- **[src/ui](https://github.com/boagestao/bgdesk/tree/master/src/ui)**: Graafinen käyttöliittymä
-- **[src/server](https://github.com/boagestao/bgdesk/tree/master/src/server)**: audio/clipboard/input/video services, and network connections
-- **[src/client.rs](https://github.com/boagestao/bgdesk/tree/master/src/client.rs)**: start a peer connection
-- **[src/rendezvous_mediator.rs](https://github.com/boagestao/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Communicate with [bgdesk-server](https://github.com/boagestao/bgdesk-server), wait for remote direct (TCP hole punching) or relayed connection
-- **[src/platform](https://github.com/boagestao/bgdesk/tree/master/src/platform)**: platform specific code
+- **[libs/hbb_common](https://github.com/bgdesk/bgdesk/tree/master/libs/hbb_common)**: video codec, config, tcp/udp wrapper, protobuf, fs-funktiot tiedostosiirtoon, ja jotkut muut apuohjelmafunktiot
+- **[libs/scrap](https://github.com/bgdesk/bgdesk/tree/master/libs/scrap)**: näyttökaappaukset
+- **[libs/enigo](https://github.com/bgdesk/bgdesk/tree/master/libs/enigo)**: platform specific keyboard/mouse control
+- **[src/ui](https://github.com/bgdesk/bgdesk/tree/master/src/ui)**: Graafinen käyttöliittymä
+- **[src/server](https://github.com/bgdesk/bgdesk/tree/master/src/server)**: audio/clipboard/input/video services, and network connections
+- **[src/client.rs](https://github.com/bgdesk/bgdesk/tree/master/src/client.rs)**: start a peer connection
+- **[src/rendezvous_mediator.rs](https://github.com/bgdesk/bgdesk/tree/master/src/rendezvous_mediator.rs)**: Communicate with [bgdesk-server](https://github.com/bgdesk/bgdesk-server), wait for remote direct (TCP hole punching) or relayed connection
+- **[src/platform](https://github.com/bgdesk/bgdesk/tree/master/src/platform)**: platform specific code
 
 ## Tilannekuvat
 

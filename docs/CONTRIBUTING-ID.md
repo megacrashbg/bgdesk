@@ -24,7 +24,7 @@ Untuk instruksi Git yang lebih lanjut, cek disini [GitHub workflow 101](https://
 
 ## Tindakan
 
-<https://github.com/boagestao/bgdesk/blob/master/docs/CODE_OF_CONDUCT-ID.md>
+<https://github.com/bgdesk/bgdesk/blob/master/docs/CODE_OF_CONDUCT-ID.md>
 
 ## Komunikasi
 

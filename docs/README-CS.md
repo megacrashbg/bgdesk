@@ -6,7 +6,7 @@
   <a href="#file-structure">Struktura</a> •
   <a href="#snapshot">Ukázky</a><br>
   [<a href="../README.md">English</a>] | [<a href="README-UA.md">Українська</a>] | [<a href="README-ZH.md">中文</a>] | [<a href="README-HU.md">Magyar</a>] | [<a href="README-ES.md">Español</a>] | [<a href="README-FA.md">فارسی</a>] | [<a href="README-FR.md">Français</a>] | [<a href="README-DE.md">Deutsch</a>] | [<a href="README-PL.md">Polski</a>] | [<a href="README-ID.md">Indonesian</a>] | [<a href="README-FI.md">Suomi</a>] | [<a href="README-ML.md">മലയാളം</a>] | [<a href="README-JP.md">日本語</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-IT.md">Italiano</a>] | [<a href="README-RU.md">Русский</a>] | [<a href="README-PTBR.md">Português (Brasil)</a>] | [<a href="README-EO.md">Esperanto</a>] | [<a href="README-KR.md">한국어</a>] | [<a href="README-AR.md">العربي</a>] | [<a href="README-VN.md">Tiếng Việt</a>] | [<a href="README-GR.md">Ελληνικά</a>]<br>
-  <b>Potřebujeme Vaši pomoc s překladem tohoto README, <a href="https://github.com/boagestao/bgdesk/tree/master/src/lang">uživatelského rozhraní aplikace BGDesk</a> a <a href="https://github.com/bgdesk/doc.bgdesk.com">dokumentace k ní</a> do vašeho jazyka</b>
+  <b>Potřebujeme Vaši pomoc s překladem tohoto README, <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">uživatelského rozhraní aplikace BGDesk</a> a <a href="https://github.com/bgdesk/doc.bgdesk.com">dokumentace k ní</a> do vašeho jazyka</b>
 </p>
 
 Popovídejte si s námi: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/bgdesk) | [Reddit](https://www.reddit.com/r/bgdesk) | [YouTube](https://www.youtube.com/@bgdesk)
@@ -14,13 +14,13 @@ Popovídejte si s námi: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](ht
 
 [![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Pokro%C4%8Dil%C3%A9%20Funkce-blue)](https://bgdesk.com/pricing.html)
 
-Zase další software pro přístup k ploše na dálku, naprogramovaný v jazyce Rust. Funguje hned tak, jak je – není třeba žádného nastavování. Svá data máte ve svých rukách, bez obav o zabezpečení. Je možné používat námi poskytovaný propojovací/předávací (relay) server, [vytvořit si svůj vlastní](https://bgdesk.com/server), nebo [si dokonce svůj vlastní naprogramovat](https://github.com/boagestao/bgdesk-server-demo), budete-li chtít.
+Zase další software pro přístup k ploše na dálku, naprogramovaný v jazyce Rust. Funguje hned tak, jak je – není třeba žádného nastavování. Svá data máte ve svých rukách, bez obav o zabezpečení. Je možné používat námi poskytovaný propojovací/předávací (relay) server, [vytvořit si svůj vlastní](https://bgdesk.com/server), nebo [si dokonce svůj vlastní naprogramovat](https://github.com/bgdesk/bgdesk-server-demo), budete-li chtít.
 
 Projekt BGDesk vítá přiložení ruky k dílu od každého. Jak začít se dozvíte z [`docs/CONTRIBUTING.md`](CONTRIBUTING.md).
 
-[**Jak BGDesk funguje?**](https://github.com/boagestao/bgdesk/wiki/How-does-BGDesk-work%3F)
+[**Jak BGDesk funguje?**](https://github.com/bgdesk/bgdesk/wiki/How-does-BGDesk-work%3F)
 
-[**STAHOVÁNÍ ZKOMPILOVANÝCH APLIKACÍ**](https://github.com/boagestao/bgdesk/releases)
+[**STAHOVÁNÍ ZKOMPILOVANÝCH APLIKACÍ**](https://github.com/bgdesk/bgdesk/releases)
 
 ## Softwarové součásti, na kterých závisí
 
@@ -95,7 +95,7 @@ cd
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 mkdir -p target/debug
 wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
@@ -108,7 +108,7 @@ VCPKG_ROOT=$HOME/vcpkg cargo run
 Začněte tím, že si naklonujete tento repozitář a sestavíte docker kontejner:
 
 ```sh
-git clone https://github.com/boagestao/bgdesk
+git clone https://github.com/bgdesk/bgdesk
 cd bgdesk
 docker build -t "bgdesk-builder" .
 ```
@@ -135,16 +135,16 @@ Ujistěte se, že tyto příkazy spouštíte z kořenového adresáře BGDesk, j
 
 ## Struktura souborů
 
-- **[libs/hbb_common](https://github.com/boagestao/bgdesk/tree/master/libs/hbb_common)**: kodek videa, nastavení, obalovaní tcp/udp, vyrovnávací paměť protokolu, funkce souborového systému pro přenos souborů a pár dalších podpůrných funkcí
-- **[libs/scrap](https://github.com/boagestao/bgdesk/tree/master/libs/scrap)**: zachytávání obsahu obrazovky
-- **[libs/enigo](https://github.com/boagestao/bgdesk/tree/master/libs/enigo)**: ovládání klávesnice/myši pro jednotlivé platformy
-- **[src/ui](https://github.com/boagestao/bgdesk/tree/master/src/ui)**: grafické uživatelské rozhraní
-- **[src/server](https://github.com/boagestao/bgdesk/tree/master/src/server)**: služby pro zvuk/schránku/zadávání/video a síťová spojení
-- **[src/client.rs](https://github.com/boagestao/bgdesk/tree/master/src/client.rs)**: spouští připojení k protějšku
-- **[src/rendezvous_mediator.rs](https://github.com/boagestao/bgdesk/tree/master/src/rendezvous_mediator.rs)**: komunikace s [bgdesk-server](https://github.com/boagestao/bgdesk-server), očekávání vzdálených příméhých („proděrováváním“ TCP) nebo předávaných (relay) spojení
-- **[src/platform](https://github.com/boagestao/bgdesk/tree/master/src/platform)**: zdrojové kódy, specifické pro jednotlivé platformy
-- **[flutter](https://github.com/boagestao/bgdesk/tree/master/flutter)**: zdrojové kódy pro použití s aplikačním rámcem (framework) Flutter pro mobilní platformy
-- **[flutter/web/js](https://github.com/boagestao/bgdesk/tree/master/flutter/web/js)**: Javascript pro Flutter webový klient
+- **[libs/hbb_common](https://github.com/bgdesk/bgdesk/tree/master/libs/hbb_common)**: kodek videa, nastavení, obalovaní tcp/udp, vyrovnávací paměť protokolu, funkce souborového systému pro přenos souborů a pár dalších podpůrných funkcí
+- **[libs/scrap](https://github.com/bgdesk/bgdesk/tree/master/libs/scrap)**: zachytávání obsahu obrazovky
+- **[libs/enigo](https://github.com/bgdesk/bgdesk/tree/master/libs/enigo)**: ovládání klávesnice/myši pro jednotlivé platformy
+- **[src/ui](https://github.com/bgdesk/bgdesk/tree/master/src/ui)**: grafické uživatelské rozhraní
+- **[src/server](https://github.com/bgdesk/bgdesk/tree/master/src/server)**: služby pro zvuk/schránku/zadávání/video a síťová spojení
+- **[src/client.rs](https://github.com/bgdesk/bgdesk/tree/master/src/client.rs)**: spouští připojení k protějšku
+- **[src/rendezvous_mediator.rs](https://github.com/bgdesk/bgdesk/tree/master/src/rendezvous_mediator.rs)**: komunikace s [bgdesk-server](https://github.com/bgdesk/bgdesk-server), očekávání vzdálených příméhých („proděrováváním“ TCP) nebo předávaných (relay) spojení
+- **[src/platform](https://github.com/bgdesk/bgdesk/tree/master/src/platform)**: zdrojové kódy, specifické pro jednotlivé platformy
+- **[flutter](https://github.com/bgdesk/bgdesk/tree/master/flutter)**: zdrojové kódy pro použití s aplikačním rámcem (framework) Flutter pro mobilní platformy
+- **[flutter/web/js](https://github.com/bgdesk/bgdesk/tree/master/flutter/web/js)**: Javascript pro Flutter webový klient
 
 ## Ukázky
 
