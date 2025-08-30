@@ -1,11 +1,11 @@
-# Bidrag til RustDesk
+# Bidrag til BGDesk
 
-RustDesk er åpene for bidrag fra alle. Her er reglene for de som har lyst til å
+BGDesk er åpene for bidrag fra alle. Her er reglene for de som har lyst til å
 hjelpe oss:
 
 ## Bidrag
 
-Bidrag til RustDesk eller deres avhengigheter burde være i form av GitHub pull requests.
+Bidrag til BGDesk eller deres avhengigheter burde være i form av GitHub pull requests.
 Hver pull request vill bli sett igjennom av en kjerne bidrager (noen med autoritet til
 å godkjenne endringene) og enten bli sendt til main treet eller respondert med
 tilbakemelding på endringer som er nødvendig. Alle bidrag burde følge dette formate
@@ -43,4 +43,4 @@ https://github.com/bgdesk/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
 
 ## Kommunikasjon
 
-RustDesk bidragere burker [Discord](https://discord.gg/nDceKgxnkV).
+BGDesk bidragere burker [Discord](https://discord.gg/nDceKgxnkV).

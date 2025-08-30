@@ -1,11 +1,11 @@
-# Beiträge zu RustDesk
+# Beiträge zu BGDesk
 
-RustDesk begrüßt Beiträge von jedem. Hier sind die Richtlinien, wenn Sie uns
+BGDesk begrüßt Beiträge von jedem. Hier sind die Richtlinien, wenn Sie uns
 helfen möchten:
 
 ## Beiträge
 
-Beiträge zu RustDesk oder seinen Abhängigkeiten sollten in Form von Pull
+Beiträge zu BGDesk oder seinen Abhängigkeiten sollten in Form von Pull
 Requests auf GitHub erfolgen. Jeder Pull Request wird von einem Hauptakteur
 (jemand mit der Erlaubnis, Korrekturen einzubringen) geprüft und entweder in den
 Hauptbaum eingefügt oder Feedback für notwendige Änderungen gegeben. Alle
@@ -47,4 +47,4 @@ https://github.com/bgdesk/bgdesk/blob/master/docs/CODE_OF_CONDUCT.md
 
 ## Kommunikation
 
-RustDesk-Mitarbeiter arbeiten häufig im [Discord](https://discord.gg/nDceKgxnkV).
+BGDesk-Mitarbeiter arbeiten häufig im [Discord](https://discord.gg/nDceKgxnkV).

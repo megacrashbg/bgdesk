@@ -18,7 +18,7 @@ ANDROID_NDK_HOME=/Users/belizario/Library/Android/sdk/ndk/27.2.12479018
 
 buildWindows()
 {
-    pushd flutter && sed -i -e 's/extended_text: 13.0.0/extended_text: 14.0.0/g' pubspec.yaml && flutter pub get && popd
+    pushd flutter && sed -i.bak 's/extended_text: 13.0.0/extended_text: 14.0.0/g' pubspec.yaml && flutter pub get && popd
     # python build.py --portable --hwcodec --flutter --skip-portable-pack --vram
     python build.py --portable --flutter
     rm -rf build/windows
@@ -31,16 +31,16 @@ buildWindows()
 
 buildMac()
 {
-   pushd flutter && sed -i -e 's/extended_text: 13.0.0/extended_text: 14.0.0/g' pubspec.yaml && popd
+   pushd flutter && sed -i.bak 's/extended_text: 13.0.0/extended_text: 14.0.0/g' pubspec.yaml && popd
 
    echo "Building Mac Cliente"
 
    rm -rf build/BGDesk.app
    rm -rf flutter/build/macos/Build/Products/Release/BGDesk.app   
    
-   cd libs/hbb_common/src && sed -i -e 's/.map_or(false, |x| x == ("incoming"))/.map_or(true, |x| x == ("incoming"))/g' config.rs && cd $ROOT_PATH
-   ./build.py --flutter --hwcodec --unix-file-copy-paste   
-   cd libs/hbb_common/src && sed -i -e 's/.map_or(true, |x| x == ("incoming"))/.map_or(false, |x| x == ("incoming"))/g' config.rs && cd $ROOT_PATH
+   cd libs/hbb_common/src && sed -i.bak 's/.map_or(false, |x| x == ("incoming"))/.map_or(true, |x| x == ("incoming"))/g' config.rs && cd $ROOT_PATH
+   ./build.py --flutter --hwcodec --unix-file-copy-paste
+   cd libs/hbb_common/src && sed -i.bak 's/.map_or(true, |x| x == ("incoming"))/.map_or(false, |x| x == ("incoming"))/g' config.rs && cd $ROOT_PATH
 
    mv -f flutter/build/macos/Build/Products/Release/BGDesk.app ./build/BGDesk.app
    cd build 
@@ -85,7 +85,7 @@ buildAndroid()
     cp ./target/aarch64-linux-android/release/liblibrustdesk.so ./flutter/android/app/src/main/jniLibs/arm64-v8a/librustdesk.so
 
     # temporary use debug sign config
-    sed -i "s/signingConfigs.release/signingConfigs.debug/g" ./flutter/android/app/build.gradle
+    sed -i.bak "s/signingConfigs.release/signingConfigs.debug/g" ./flutter/android/app/build.gradle
 
 
     mkdir -p ./flutter/android/app/src/main/jniLibs/arm64-v8a

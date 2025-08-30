@@ -1,10 +1,10 @@
-# RustDesk'a Katkı Sağlamak
+# BGDesk'a Katkı Sağlamak
 
-RustDesk, herkesten katkıyı memnuniyetle karşılar. Eğer bize yardımcı olmayı düşünüyorsanız, işte rehberlik eden kurallar:
+BGDesk, herkesten katkıyı memnuniyetle karşılar. Eğer bize yardımcı olmayı düşünüyorsanız, işte rehberlik eden kurallar:
 
 ## Katkılar
 
-RustDesk veya bağımlılıklarına yapılan katkılar, GitHub pull istekleri şeklinde yapılmalıdır. Her bir pull isteği, çekirdek katkıcı tarafından gözden geçirilecek (yamaları kabul etme izni olan biri) ve ana ağaca kabul edilecek veya gerekli değişiklikler için geri bildirim verilecektir. Tüm katkılar bu formata uymalıdır, çekirdek katkıcılardan gelenler bile.
+BGDesk veya bağımlılıklarına yapılan katkılar, GitHub pull istekleri şeklinde yapılmalıdır. Her bir pull isteği, çekirdek katkıcı tarafından gözden geçirilecek (yamaları kabul etme izni olan biri) ve ana ağaca kabul edilecek veya gerekli değişiklikler için geri bildirim verilecektir. Tüm katkılar bu formata uymalıdır, çekirdek katkıcılardan gelenler bile.
 
 Eğer bir konu üzerinde çalışmak isterseniz, önce üzerinde çalışmak istediğinizi belirten bir yorum yaparak konuyu talep ediniz. Bu, katkı sağlayanların aynı konuda çift çalışmasını engellemek içindir.
 
@@ -28,4 +28,4 @@ https://github.com/bgdesk/bgdesk/blob/master/docs/CODE_OF_CONDUCT-TR.md
 
 ## İletişim
 
-RustDesk katkı sağlayıcıları, [Discord](https://discord.gg/nDceKgxnkV) kanalını sık sık ziyaret ederler.
+BGDesk katkı sağlayıcıları, [Discord](https://discord.gg/nDceKgxnkV) kanalını sık sık ziyaret ederler.

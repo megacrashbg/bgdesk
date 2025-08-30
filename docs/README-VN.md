@@ -1,25 +1,25 @@
 
 
 <p align="center">
-  <img src="../res/logo-header.svg" alt="RustDesk - Your remote desktop"><br>
+  <img src="../res/logo-header.svg" alt="BGDesk - Your remote desktop"><br>
   <a href="#free-public-servers">Server</a> •
   <a href="#raw-steps-to-build">Build</a> •
   <a href="#how-to-build-with-docker">Docker</a> •
   <a href="#file-structure">Structure</a> •
   <a href="#snapshot">Snapshot</a><br>
   [<a href="../README.md">English</a>] | [<a href="README-UA.md">Українська</a>] | [<a href="README-CS.md">česky</a>] | [<a href="README-ZH.md">中文</a>] | [<a href="README-HU.md">Magyar</a>] | [<a href="README-ES.md">Español</a>] | [<a href="README-FA.md">فارسی</a>] | [<a href="README-FR.md">Français</a>] | [<a href="README-DE.md">Deutsch</a>] | [<a href="README-PL.md">Polski</a>] | [<a href="README-ID.md">Indonesian</a>] | [<a href="README-FI.md">Suomi</a>] | [<a href="README-ML.md">മലയാളം</a>] | [<a href="README-JP.md">日本語</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-IT.md">Italiano</a>] | [<a href="README-RU.md">Русский</a>] | [<a href="README-PTBR.md">Português (Brasil)</a>] | [<a href="README-EO.md">Esperanto</a>] | [<a href="README-KR.md">한국어</a>] | [<a href="README-AR.md">العربي</a>] | [<a href="README-GR.md">Ελληνικά</a>]<br>
-  <b>Chúng tôi rất hoan nghênh sự hỗ trợ của bạn trong việc dịch trang README, trang giao diện người dùng của RustDesk - <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">RustDesk UI</a> và trang tài liệu của RustDesk - <a href="https://github.com/bgdesk/doc.bgdesk.com">RustDesk Doc</a> sang Tiếng Việt</b>
+  <b>Chúng tôi rất hoan nghênh sự hỗ trợ của bạn trong việc dịch trang README, trang giao diện người dùng của BGDesk - <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">BGDesk UI</a> và trang tài liệu của BGDesk - <a href="https://github.com/bgdesk/doc.bgdesk.com">BGDesk Doc</a> sang Tiếng Việt</b>
 </p>
 
 Hãy trao đổi với chúng tôi qua: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/bgdesk) | [Reddit](https://www.reddit.com/r/bgdesk) | [YouTube](https://www.youtube.com/@bgdesk)
 
-[![RustDesk Server Pro](https://img.shields.io/badge/RustDesk%20Server%20Pro-T%C3%ADnh%20N%C4%83ng%20N%C3%A2ng%20Cao-blue)](https://bgdesk.com/pricing.html)
+[![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-T%C3%ADnh%20N%C4%83ng%20N%C3%A2ng%20Cao-blue)](https://bgdesk.com/pricing.html)
 
-RustDesk là một phần mềm điểu khiển máy tính từ xa mã nguồn mở, được viết bằng Rust. Nó hoạt động ngay sau khi cài đặt, không yêu cầu cấu hình phức tạp. Bạn có toàn quyền kiểm soát với dữ liệu của mình mà không cần phải lo lắng về vấn đề bảo mật. Bạn có thể sử dụng máy chủ rendezvous/relay của chúng tôi hoặc [tự cài đặt máy chủ của riêng mình](https://bgdesk.com/server) hay thậm chí [tự tạo máy chủ rendezvous/relay cho riêng bạn](https://github.com/bgdesk/bgdesk-server-demo).
+BGDesk là một phần mềm điểu khiển máy tính từ xa mã nguồn mở, được viết bằng Rust. Nó hoạt động ngay sau khi cài đặt, không yêu cầu cấu hình phức tạp. Bạn có toàn quyền kiểm soát với dữ liệu của mình mà không cần phải lo lắng về vấn đề bảo mật. Bạn có thể sử dụng máy chủ rendezvous/relay của chúng tôi hoặc [tự cài đặt máy chủ của riêng mình](https://bgdesk.com/server) hay thậm chí [tự tạo máy chủ rendezvous/relay cho riêng bạn](https://github.com/bgdesk/bgdesk-server-demo).
 
 ![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
 
-**RustDesk** luôn hoan nghênh mọi đóng góp từ mọi người. Hãy xem tệp [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) để bắt đầu. 
+**BGDesk** luôn hoan nghênh mọi đóng góp từ mọi người. Hãy xem tệp [`docs/CONTRIBUTING.md`](CONTRIBUTING.md) để bắt đầu. 
 
 [**FAQ**](https://github.com/bgdesk/bgdesk/wiki/FAQ)
 [**BINARY DOWNLOAD**](https://github.com/bgdesk/bgdesk/releases)
@@ -135,7 +135,7 @@ Nếu bạn đang chạy bản build được tối ưu hóa, thì bạn có th�
 target/release/bgdesk
 ```
 
-Hãy đảm bảo rằng bạn đang chạy các lệnh này từ gốc của thư mục **RustDesk**, nếu không, ứng dụng có thể không thể tìm thấy các tệp tài nguyên cần thiết. Hãy lưu ý rằng các câu lệnh con khác của **cargo** như **install** hoặc **run** hiện không được hỗ trợ qua phương pháp này, vì chúng sẽ cài đặt hoặc chạy chương trình bên trong **container** thay vì trên máy tính của bạn.
+Hãy đảm bảo rằng bạn đang chạy các lệnh này từ gốc của thư mục **BGDesk**, nếu không, ứng dụng có thể không thể tìm thấy các tệp tài nguyên cần thiết. Hãy lưu ý rằng các câu lệnh con khác của **cargo** như **install** hoặc **run** hiện không được hỗ trợ qua phương pháp này, vì chúng sẽ cài đặt hoặc chạy chương trình bên trong **container** thay vì trên máy tính của bạn.
 
 ## Cấu trúc tệp tin
 

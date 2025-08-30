@@ -1,24 +1,24 @@
 
 <p align="center">
-  <img src="../res/logo-header.svg" alt="RustDesk - Uzak masaüstü uygulamanız"><br>
+  <img src="../res/logo-header.svg" alt="BGDesk - Uzak masaüstü uygulamanız"><br>
   <a href="#free-public-servers">Sunucular</a> •
   <a href="#raw-steps-to-build">Derleme</a> •
   <a href="#how-to-build-with-docker">Docker ile Derleme</a> •
   <a href="#file-structure">Dosya Yapısı</a> •
   <a href="#snapshot">Ekran Görüntüleri</a><br>
   [<a href="docs/README-UA.md">Українська</a>] | [<a href="docs/README-CS.md">česky</a>] | [<a href="docs/README-ZH.md">中文</a>] | [<a href="docs/README-HU.md">Magyar</a>] | [<a href="docs/README-ES.md">Español</a>] | [<a href="docs/README-FA.md">فارسی</a>] | [<a href="docs/README-FR.md">Français</a>] | [<a href="docs/README-DE.md">Deutsch</a>] | [<a href="docs/README-PL.md">Polski</a>] | [<a href="docs/README-ID.md">Indonesian</a>] | [<a href="docs/README-FI.md">Suomi</a>] | [<a href="docs/README-ML.md">മലയാളം</a>] | [<a href="docs/README-JP.md">日本語</a>] | [<a href="docs/README-NL.md">Nederlands</a>] | [<a href="docs/README-IT.md">Italiano</a>] | [<a href="docs/README-RU.md">Русский</a>] | [<a href="docs/README-PTBR.md">Português (Brasil)</a>] | [<a href="docs/README-EO.md">Esperanto</a>] | [<a href="docs/README-KR.md">한국어</a>] | [<a href="docs/README-AR.md">العربي</a>] | [<a href="docs/README-VN.md">Tiếng Việt</a>] | [<a href="docs/README-DA.md">Dansk</a>] | [<a href="docs/README-GR.md">Ελληνικά</a>]<br>
-  <b>README, <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">RustDesk UI</a> ve <a href="https://github.com/bgdesk/doc.bgdesk.com">RustDesk Belge</a>'sini ana dilinize çevirmemiz için yardımınıza ihtiyacımız var</b>
+  <b>README, <a href="https://github.com/bgdesk/bgdesk/tree/master/src/lang">BGDesk UI</a> ve <a href="https://github.com/bgdesk/doc.bgdesk.com">BGDesk Belge</a>'sini ana dilinize çevirmemiz için yardımınıza ihtiyacımız var</b>
 </p>
 
 Bizimle sohbet edin: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/bgdesk) | [Reddit](https://www.reddit.com/r/bgdesk) | [YouTube](https://www.youtube.com/@bgdesk)
 
-[![RustDesk Server Pro](https://img.shields.io/badge/RustDesk%20Server%20Pro-Geli%C5%9Fmi%C5%9F%20%C3%96zellikler-blue)](https://bgdesk.com/pricing.html)
+[![BGDesk Server Pro](https://img.shields.io/badge/BGDesk%20Server%20Pro-Geli%C5%9Fmi%C5%9F%20%C3%96zellikler-blue)](https://bgdesk.com/pricing.html)
 
 Başka bir uzak masaüstü yazılımı daha, Rust dilinde yazılmış. Hemen kullanıma hazır, hiçbir yapılandırma gerektirmez. Verilerinizin tam kontrolünü elinizde tutarsınız ve güvenlikle ilgili endişeleriniz olmaz. Kendi buluş/iletme sunucumuzu kullanabilirsiniz, [kendi sunucunuzu kurabilirsiniz](https://bgdesk.com/server) veya [kendi buluş/iletme sunucunuzu yazabilirsiniz](https://github.com/bgdesk/bgdesk-server-demo).
 
 ![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
 
-RustDesk, herkesten katkıyı kabul eder. Başlamak için [CONTRIBUTING.md](CONTRIBUTING-TR.md) belgesine göz atın.
+BGDesk, herkesten katkıyı kabul eder. Başlamak için [CONTRIBUTING.md](CONTRIBUTING-TR.md) belgesine göz atın.
 
 [**SSS**](https://github.com/bgdesk/bgdesk/wiki/FAQ)
 
@@ -151,7 +151,7 @@ Veya, yayın yürütülebilir dosyası çalıştırılıyorsa:
 target/release/bgdesk
 ```
 
-Lütfen bu komutları RustDesk deposunun kökünden çalıştırdığınızdan emin olun, aksi takdirde uygulama gereken kaynakları bulamayabilir. Ayrıca, `install` veya `run` gibi diğer cargo altkomutları şu anda bu yöntem aracılığıyla desteklenmemektedir, çünkü bunlar programı konteyner içinde kurar veya çalıştırır ve ana makinede değil.
+Lütfen bu komutları BGDesk deposunun kökünden çalıştırdığınızdan emin olun, aksi takdirde uygulama gereken kaynakları bulamayabilir. Ayrıca, `install` veya `run` gibi diğer cargo altkomutları şu anda bu yöntem aracılığıyla desteklenmemektedir, çünkü bunlar programı konteyner içinde kurar veya çalıştırır ve ana makinede değil.
  
 ## Dosya Yapısı
 
@@ -168,7 +168,7 @@ Lütfen bu komutları RustDesk deposunun kökünden çalıştırdığınızdan e
 
 > [!Dikkat]
 > **Yanlış Kullanım Uyarısı:** <br>
-> RustDesk geliştiricileri, bu yazılımın etik olmayan veya yasa dışı kullanımını onaylamaz veya desteklemez. Yetkisiz erişim, kontrol veya gizlilik ihlali gibi kötüye kullanımlar kesinlikle yönergelerimize aykırıdır. Yazarlar, uygulamanın herhangi bir yanlış kullanımından sorumlu değildir.
+> BGDesk geliştiricileri, bu yazılımın etik olmayan veya yasa dışı kullanımını onaylamaz veya desteklemez. Yetkisiz erişim, kontrol veya gizlilik ihlali gibi kötüye kullanımlar kesinlikle yönergelerimize aykırıdır. Yazarlar, uygulamanın herhangi bir yanlış kullanımından sorumlu değildir.
 
 ## Ekran Görüntüleri
 

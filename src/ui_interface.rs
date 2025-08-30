@@ -528,7 +528,7 @@ pub fn set_share_rdp(_enable: bool) {
 }
 
 #[inline]
-pub fn is_installed_lower_version() -> bool {
+pub fn is_installed_lower_version() -> bool { return false; 
     #[cfg(not(windows))]
     return false;
     #[cfg(windows)]

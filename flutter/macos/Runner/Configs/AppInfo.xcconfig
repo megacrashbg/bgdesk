@@ -8,7 +8,7 @@
 PRODUCT_NAME = BGDesk
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.carriez.flutterHbb
+PRODUCT_BUNDLE_IDENTIFIER = br.com.boagestao.bgdesk
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Based on RustDesk. Copyright © 2025 Purslane Ltd and Thinksoft LTDA. All rights reserved.
